@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    scroll-behavior: smooth;
+    background-color: black;
+    color: white;
+}
+
+@keyframes autorun {
+    from{
+        transform: perspective(1000px) rotateX(-46deg) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateX(-46deg) rotateY(360deg);
+    }
+}
