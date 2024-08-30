@@ -29,7 +29,7 @@ const InvertedText = () => {
     };
 
     return (
-        <section className='cursor-none'>
+        <section className='cursor-none min-h-screen flex items-center justify-center relative overflow-hidden'>
             <motion.div
                 style={divStyle}
                 className='h-52 w-52 bg-white absolute '

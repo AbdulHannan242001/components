@@ -90,32 +90,34 @@ const Background = () => {
 
 const SquishyCard = () => {
     return (
-        <motion.div
-            whileHover="hover"
-            variants={{
-                hover: { scale: 1.1 },
-            }}
-            transition={{ duration: 1, ease: "backInOut" }}
-            className='relative h-96 w-80 shrink-0 overflow-hidden rounded-lg bg-indigo-600 p-8'>
-            <div className='relative z-10 text-white '>
-                <span className='mb-3 block w-fit rounded-full bg-white/30 px-3 py-0.5 text-sm text-white font-light'>Pro</span>
-                <motion.span
-                    initial={{ scale: 0.85 }}
-                    variants={{
-                        hover: {
-                            scale: 1
-                        },
-                    }}
-                    transition={{ duration: 1, ease: "backInOut" }}
-                    className='my-2 block origin-top-left py-0.5 font-semibold text-6xl text-white'
-                >
-                    $99 / Month
-                </motion.span>
-                <p className='my-2 block py-0.5 text-base text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nihil</p>
-            </div>
-            <button className='text-xl absolute bottom-4 right-4 left-4 z-20 rounded border-2 border-white bg-white py-2 text-center text-black uppercase backdrop-blur transition-colors hover:bg-white/30 hover:text-white font-bold font-mono' >GET IT NOW</button>
-            <Background />
-        </motion.div>
+        <section className='h-screen flex items-center justify-center'>
+            <motion.div
+                whileHover="hover"
+                variants={{
+                    hover: { scale: 1.1 },
+                }}
+                transition={{ duration: 1, ease: "backInOut" }}
+                className='relative h-96 w-80 shrink-0 overflow-hidden rounded-lg bg-indigo-600 p-8'>
+                <div className='relative z-10 text-white '>
+                    <span className='mb-3 block w-fit rounded-full bg-white/30 px-3 py-0.5 text-sm text-white font-light'>Pro</span>
+                    <motion.span
+                        initial={{ scale: 0.85 }}
+                        variants={{
+                            hover: {
+                                scale: 1
+                            },
+                        }}
+                        transition={{ duration: 1, ease: "backInOut" }}
+                        className='my-2 block origin-top-left py-0.5 font-semibold text-6xl text-white'
+                    >
+                        $99 / Month
+                    </motion.span>
+                    <p className='my-2 block py-0.5 text-base text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nihil</p>
+                </div>
+                <button className='text-xl absolute bottom-4 right-4 left-4 z-20 rounded border-2 border-white bg-white py-2 text-center text-black uppercase backdrop-blur transition-colors hover:bg-white/30 hover:text-white font-bold font-mono' >GET IT NOW</button>
+                <Background />
+            </motion.div>
+        </section>
     );
 }
 

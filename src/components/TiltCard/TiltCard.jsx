@@ -6,7 +6,7 @@ import {
     useSpring,
 } from "framer-motion";
 
-import batman from '../assets/image.png'
+import batman from '../../assets/image.png'
 
 
 const ROTATION_RANGE = 32.5;
@@ -56,39 +56,41 @@ const TiltCard = () => {
         height: '100%',
     };
     return (
-        <motion.div
-            ref={ref}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{
-                transformStyle: "preserve-3d",
-                transform,
-                backgroundImage: `url(${batman})`,
-                backgroundColor: '#fff808',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-            }}
-            className="relative h-96 w-72 rounded-xl"
-        >
-            <div
+        <section className="flex items-center justify-center min-h-screen">
+            <motion.div
+                ref={ref}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
                 style={{
-                    transform: "translateZ(200px)",
                     transformStyle: "preserve-3d",
-
+                    transform,
+                    backgroundImage: `url(${batman})`,
+                    backgroundColor: '#fff808',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
                 }}
-                className="absolute inset-5 grid place-content-center backdrop-blur-sm bg-opacity-30 rounded-xl bg-white shadow-2xl"
+                className="relative h-96 w-72 rounded-xl"
             >
-                <p
+                <div
                     style={{
-                        transform: "translateZ(100px)",
+                        transform: "translateZ(200px)",
+                        transformStyle: "preserve-3d",
+
                     }}
-                    className="text-center text-2xl font-bold"
+                    className="absolute inset-5 grid place-content-center backdrop-blur-sm bg-opacity-30 rounded-xl bg-white shadow-2xl"
                 >
-                    I AM BATMAN
-                </p>
-            </div>
-        </motion.div>
+                    <p
+                        style={{
+                            transform: "translateZ(100px)",
+                        }}
+                        className="text-center text-2xl font-bold"
+                    >
+                        I AM BATMAN
+                    </p>
+                </div>
+            </motion.div>
+        </section>
     );
 };
 

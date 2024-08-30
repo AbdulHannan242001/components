@@ -12,18 +12,17 @@ const Word = () => {
     const words = paragraph.split(' ');
 
     return (
-        <div ref={ref} className='w-full flex flex-col justify-center'>
-            <p className='text-white flex flex-wrap mx-auto px-12 text-3xl font-thin font-serif tracking-tight'>
-                {words.map((word, index) => {
-                    const start = index / words.length;
-                    const end = start + (1 / words.length);
-                    return <Wo key={index} range={[start, end]} progress={scrollYProgress}>{word}</Wo>;
-                })}
-            </p>
-            <p className='text-white px-12 text-center flex text-5xl font-thin font-serif tracking-tight h-[80vh] justify-center items-end'>
-                YUP WORKS GREAT !
-            </p>
-        </div>
+        <section className='flex items-center justify-center min-h-[150vh]'>
+            <div ref={ref} className='w-full flex flex-col justify-center'>
+                <p className='text-white flex flex-wrap mx-auto px-12 text-3xl font-thin font-serif tracking-tight'>
+                    {words.map((word, index) => {
+                        const start = index / words.length;
+                        const end = start + (1 / words.length);
+                        return <Wo key={index} range={[start, end]} progress={scrollYProgress}>{word}</Wo>;
+                    })}
+                </p>
+            </div>
+        </section>
     );
 };
 
