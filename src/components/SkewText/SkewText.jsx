@@ -12,16 +12,16 @@ const SkewText = () => {
 
     const skewXRaw = useTransform(
         scrollVelocity,
-        [-0.5, 0.5],
+        [-0.9, 0.9],
         ['45deg', '-45deg']
     )
-    const skewX = useSpring(skewXRaw, { stiffness: 400, mass: 3, damping: 15 })
+    const skewX = useSpring(skewXRaw, { stiffness: 200, mass: 2, damping: 15 })
 
-    const xRaw = useTransform(scrollYProgress, [0, 1], [0, -17000]);
+    const xRaw = useTransform(scrollYProgress, [0, 1], [0, -3500]);
     const x = useSpring(xRaw,)
 
     return (
-        <section ref={targetRef} className=' w-full min-h-[1000vh] relative bg-neutral-50'>
+        <section ref={targetRef} className=' w-full min-h-[400vh] relative bg-neutral-50'>
             <div className='sticky top-0 flex h-[100vh] items-center overflow-hidden' >
                 <motion.p
                     style={{
@@ -29,11 +29,7 @@ const SkewText = () => {
                         x,
                     }}
                     className="origin-bottom-left whitespace-nowrap text-7xl font-bold text-neutral-900 uppercase leading-[0.85] md:leading-[0.85]">
-                    You really can solve alot of male problems by getting in shape and making alot of money. You still have problems.
-                    They are just smaller & you have more resources to handle them.
-                    The world is there for the taking for anyone who learns from their mistakes, Do what they say they were going to do & stick with it.
-                    What used to make a man acceptable is now considered extraordinary.
-                    The bar for winning has never been so low
+                    This text leans left when going down, and leans right when going up. How cool is that :D
                 </motion.p>
             </div >
         </section >
