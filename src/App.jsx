@@ -11,6 +11,7 @@ import Carousel3d from './components/Carousel3D/Carousel3d';
 import SkewText from './components/SkewText/SkewText';
 import Button from './components/Button/Button';
 import ShinyButton from './components/ShinyButton/ShinyButton';
+import ContactForm from './components/ContactForm/ContactForm';
 
 function App() {
   const cardImg = [
@@ -45,6 +46,7 @@ function App() {
         />
         <SkewText />
         <ShinyButton />
+        <ContactForm />
       </section>
     </Lenis>
   );

@@ -8,7 +8,7 @@ body {
   color: white;
 }
 
-/* .radial-gradient {
+.radial-gradient {
   background: radial-gradient(
       circle at 50% 0%,
       rgba(250, 250, 250, 0.05) 0%,
@@ -43,7 +43,7 @@ body {
     linear-gradient(black, black);
   mask-composite: exclude;
   -webkit-mask-composite: xor;
-} */
+}
 
 @keyframes autorun {
   from {
