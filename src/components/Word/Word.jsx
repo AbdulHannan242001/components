@@ -14,7 +14,7 @@ const Word = () => {
     return (
         <section ref={ref} className='relative min-h-[200vh]'>
             <motion.div className='sticky top-10 flex justify-center'>
-                <p className='text-white flex flex-wrap mx-auto px-12 md:text-6xl text-3xl font-thin font-serif tracking-tight'>
+                <p className='text-white flex flex-wrap mx-auto px-12 md:text-6xl text-3xl font-thin font-serif tracking-wider leading-10'>
                     {words.map((word, index) => {
                         const start = index / words.length;
                         const end = start + (1 / words.length);

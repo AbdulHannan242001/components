@@ -12,6 +12,10 @@ import SkewText from './components/SkewText/SkewText';
 import Button from './components/Button/Button';
 import ShinyButton from './components/ShinyButton/ShinyButton';
 import ContactForm from './components/ContactForm/ContactForm';
+import HoverCards from './components/HoverCards/HoverCards';
+
+import image from './assets/camera.jpg'
+import svg from './assets/template.svg'
 
 function App() {
   const cardImg = [
@@ -47,6 +51,7 @@ function App() {
         <SkewText />
         <ShinyButton />
         <ContactForm />
+        <HoverCards title={"Hover Cards"} description={"This is some text or maybe some description. Gotta keep writing in real world cases, descriptions are pretty long. Almost there I think this will be enough."} svg={svg} image={image} />
       </section>
     </Lenis>
   );
