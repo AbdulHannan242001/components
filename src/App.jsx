@@ -13,6 +13,8 @@ import Button from './components/Button/Button';
 import ShinyButton from './components/ShinyButton/ShinyButton';
 import ContactForm from './components/ContactForm/ContactForm';
 import HoverCards from './components/HoverCards/HoverCards';
+import SplitVignetteEffect from './components/SplitVignetteEffect/SplitVignetteEffect';
+import FloatingPhone from './components/FloatingPhone/FloatingPhone';
 
 import image from './assets/camera.jpg'
 import svg from './assets/template.svg'
@@ -52,6 +54,8 @@ function App() {
         <ShinyButton />
         <ContactForm />
         <HoverCards title={"Hover Cards"} description={"This is some text or maybe some description. Gotta keep writing in real world cases, descriptions are pretty long. Almost there I think this will be enough."} svg={svg} image={image} />
+        <FloatingPhone />
+        <SplitVignetteEffect />
       </section>
     </Lenis>
   );

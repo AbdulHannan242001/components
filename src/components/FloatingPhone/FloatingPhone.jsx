@@ -1,34 +1,36 @@
 import { motion } from "framer-motion";
 import { FiBatteryCharging, FiWifi } from "react-icons/fi";
-import saska from "../assets/Saska.png"
+import saska from "../../assets/Saska.png";
 const FloatingPhone = () => {
     return (
-        <div
-            style={{
-                transformStyle: "preserve-3d",
-                transform: "rotateY(-30deg) rotateX(15deg)",
-            }}
-            className="rounded-[24px] bg-gradient-to-tr from-sky-600 to-pink-600 p-1"
-        >
-            <motion.div
-                initial={{
-                    transform: "translateZ(8px) translateY(-2px)",
+        <section className="min-h-[100vh] flex justify-center items-center">
+            <div
+                style={{
+                    transformStyle: "preserve-3d",
+                    transform: "rotateY(-30deg) rotateX(15deg)",
                 }}
-                animate={{
-                    transform: "translateZ(32px) translateY(-8px)",
-                }}
-                transition={{
-                    repeat: Infinity,
-                    repeatType: "mirror",
-                    duration: 2,
-                    ease: "easeInOut",
-                }}
-                className="relative h-96 w-56 rounded-[24px] border-2 border-b-4 border-r-4 border-white border-l-neutral-200 border-t-neutral-200 bg-neutral-900 p-1 pl-[3px] pt-[3px]"
+                className="rounded-[24px] bg-gradient-to-tr from-sky-600 to-pink-600 p-1"
             >
-                <HeaderBar />
-                <Screen />
-            </motion.div>
-        </div>
+                <motion.div
+                    initial={{
+                        transform: "translateZ(8px) translateY(-2px)",
+                    }}
+                    animate={{
+                        transform: "translateZ(32px) translateY(-8px)",
+                    }}
+                    transition={{
+                        repeat: Infinity,
+                        repeatType: "mirror",
+                        duration: 2,
+                        ease: "easeInOut",
+                    }}
+                    className="relative h-96 w-56 rounded-[24px] border-2 border-b-4 border-r-4 border-white border-l-neutral-200 border-t-neutral-200 bg-neutral-900 p-1 pl-[3px] pt-[3px]"
+                >
+                    <HeaderBar />
+                    <Screen />
+                </motion.div>
+            </div>
+        </section>
     );
 };
 
