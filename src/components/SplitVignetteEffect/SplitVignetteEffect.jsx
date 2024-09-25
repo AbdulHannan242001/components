@@ -35,14 +35,16 @@ const SplitVignetteEffect = () => {
 
   }
   return (
-    <main onMouseMove={mouseMove}>
-      {
-        div.map((item, i) => {
-          return <Gallery key={i} mousePosition={mousePosition} item={item} i={i} />
-        })
-      }
 
-    </main>
+    <section className='h-auto w-full flex flex-col items-center justify-center overflow-hidden cursor-none'>
+      <main onMouseMove={mouseMove}>
+        {
+          div.map((item, i) => {
+            return <Gallery key={i} mousePosition={mousePosition} item={item} i={i} />
+          })
+        }
+      </main>
+    </section>
   )
 }
 
