@@ -55,7 +55,7 @@ const Gallery = ({ mousePosition, item, i }) => {
 
   return (
     <div className='h-[120vh]' style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }} >
-      <div style={{ background }} className='w-screen h-full relative'>
+      <div style={{ background }} className='h-full w-screen relative overflow-hidden'>
       </div>
       <motion.div
         className='h-[30vh] w-[25vh] fixed top-0 left-0 rounded-xl overflow-hidden pointer-events-none'

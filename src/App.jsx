@@ -18,6 +18,7 @@ import FloatingPhone from './components/FloatingPhone/FloatingPhone';
 
 import image from './assets/camera.jpg'
 import svg from './assets/template.svg'
+import CallToAction from './components/CTA/callToAction';
 
 function App() {
   const cardImg = [
@@ -56,6 +57,7 @@ function App() {
         <HoverCards title={"Hover Cards"} description={"This is some text or maybe some description. Gotta keep writing in real world cases, descriptions are pretty long. Almost there I think this will be enough."} svg={svg} image={image} />
         <FloatingPhone />
         <SplitVignetteEffect />
+        <CallToAction />
       </section>
     </Lenis>
   );
