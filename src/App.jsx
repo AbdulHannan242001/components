@@ -19,6 +19,7 @@ import FloatingPhone from './components/FloatingPhone/FloatingPhone';
 import image from './assets/camera.jpg'
 import svg from './assets/template.svg'
 import CallToAction from './components/CTA/callToAction';
+import ParallaxSection from './components/ParallaxSection/ParallaxSection';
 
 function App() {
   const cardImg = [
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <Lenis root>
-      <section className="flex flex-col scroll-smooth min-h-[100vh] min-w-screen items-center justify-center bg-neutral-900">
+      <section className="flex flex-col scroll-smooth min-h-[100vh] min-w-screen  bg-neutral-900">
         <Button />
         <SquishyCard />
         <TiltCard />
@@ -58,6 +59,7 @@ function App() {
         <FloatingPhone />
         <SplitVignetteEffect />
         <CallToAction />
+        <ParallaxSection />
       </section>
     </Lenis>
   );
