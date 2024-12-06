@@ -20,6 +20,7 @@ import image from './assets/camera.jpg'
 import svg from './assets/template.svg'
 import CallToAction from './components/CTA/callToAction';
 import ParallaxSection from './components/ParallaxSection/ParallaxSection';
+import BallSwitchSlider from './components/BallSwitch/BallSwitchSlider';
 
 function App() {
   const cardImg = [
@@ -60,6 +61,7 @@ function App() {
         <SplitVignetteEffect />
         <CallToAction />
         <ParallaxSection />
+        <BallSwitchSlider />
       </section>
     </Lenis>
   );

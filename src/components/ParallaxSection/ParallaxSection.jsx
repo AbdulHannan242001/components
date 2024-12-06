@@ -17,7 +17,7 @@ const ParallaxSection = () => {
     const md = useTransform(scrollYProgress, [0, 1], [0, -100])
     const lg = useTransform(scrollYProgress, [0, 1], [0, -150])
     return (
-        <main className='min-h-[150vh]'>
+        <main className='min-h-[100vh]'>
             <section ref={ref} className="min-h-screen flex items-center">
                 <div className='p-8 w-full'>
                     <motion.h1 style={{ y: sm }} className='text-neutral-200 text-4xl md:text-6xl font-serif font-semibold'>Some Heading Goes Here</motion.h1>
