@@ -21,6 +21,8 @@ import svg from './assets/template.svg'
 import CallToAction from './components/CTA/callToAction';
 import ParallaxSection from './components/ParallaxSection/ParallaxSection';
 import BallSwitchSlider from './components/BallSwitch/BallSwitchSlider';
+import ImageParallax from './components/ScrollImageParallax/ImageParallax';
+import InViewAnimation from './components/InViewImage/InViewAnimation';
 
 function App() {
   const cardImg = [
@@ -62,6 +64,8 @@ function App() {
         <CallToAction />
         <ParallaxSection />
         <BallSwitchSlider />
+        <ImageParallax />
+        <InViewAnimation />
       </section>
     </Lenis>
   );
