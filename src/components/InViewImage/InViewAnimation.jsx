@@ -22,7 +22,14 @@ const InViewAnimation = () => {
             <div ref={containerRef} className="flex flex-row w-full min-h-screen">
                 <div className="p-30px h-screen w-6/12 flex items-center justify-center">
                     <div className='w-10/12 h-[400px] relative'>
-                        <img src={clouds} alt="clouds" className='w-full h-full object-cover shadow-xl shadow-slate-400' />
+                        <motion.img
+                            src={clouds}
+                            alt="clouds"
+                            className='w-full h-full object-cover'
+                            initial={{ boxShadow: '0px 0px 0px rgba(0, 0, 0, 0)' }}
+                            animate={{ boxShadow: isInView ? '0px 10px 20px rgba(0, 0, 0, 0.4)' : '0px 0px 0px rgba(0, 0, 0, 0)' }}
+                            transition={{ duration: 0.5, delay: 1.5 }}
+                        />
                         <motion.div
                             className='w-full h-[400px] bg-neutral-50 absolute top-0 z-50'
                             initial={{ height: '400px' }}

@@ -23,6 +23,9 @@ import ParallaxSection from './components/ParallaxSection/ParallaxSection';
 import BallSwitchSlider from './components/BallSwitch/BallSwitchSlider';
 import ImageParallax from './components/ScrollImageParallax/ImageParallax';
 import InViewAnimation from './components/InViewImage/InViewAnimation';
+import SwiperSlider from './components/SwiperSlider/SwiperSlider';
+import TwoAxisSlider from './components/TwoAxisSlider/TwoAxisSlider';
+import InfiniteMarquee from './components/InfiniteMarquee/InfiniteMarquee';
 
 function App() {
   const cardImg = [
@@ -66,6 +69,9 @@ function App() {
         <BallSwitchSlider />
         <ImageParallax />
         <InViewAnimation />
+        <SwiperSlider />
+        <TwoAxisSlider />
+        <InfiniteMarquee />
       </section>
     </Lenis>
   );
