@@ -58,6 +58,7 @@ const ColumnParallax = () => {
             <img src={img6} alt="" className="w-full h-full object-cover" />
           </div>
         </motion.div>
+        {/* test */}
         <motion.div
           style={{ y: y3 }}
           className="w-4/12 h-full relative flex flex-col gap-[1vw] min-w-[250px] -top-[65%]"
