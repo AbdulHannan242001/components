@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform, motion } from "framer-motion";
 import img1 from "../../assets/Picture1.jpg";
 import img2 from "../../assets/Picture2.jpg";
 import img3 from "../../assets/Picture3.jpg";
@@ -12,55 +12,66 @@ import img9 from "../../assets/mountain.jpg";
 
 const ColumnParallax = () => {
   const windowHeight = window.innerHeight;
-  const target = useRef();
+  const target = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: target,
-    offset: ["start end", "end center"],
+    offset: ["start end", "end start"],
   });
 
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, windowHeight * 0.2]);
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, windowHeight * 1.9]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, windowHeight * 2.3]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, windowHeight * 1.25]);
 
   return (
     <section>
       <div className="h-[100vh]" />
       <main
         ref={target}
-        className="h-[100vh] mx-auto max-w-[1200px] flex flex-row gap-2 bg-neutral-500 rounded-2xl m-[30px] items-center justify-center overflow-hidden p-[10px]"
+        className="h-[100vh] mx-auto w-fit flex flex-row gap-[1vw] bg-white rounded-2xl m-[30px] items-center justify-center overflow-hidden p-[1vw]"
       >
-        <div style={{ y: y1 }} className="flex flex-col w-4/12 gap-2">
-          <div className="relative w-[400px] h-[600px]  rounded-lg overflow-hidden">
-            <img src={img1} className="object-cover items-center" alt="" />
+        <motion.div
+          style={{ y: y1 }}
+          className="w-4/12 h-full relative flex flex-col gap-[1vw] min-w-[250px] -top-[100%]"
+        >
+          <div className="w-full h-[33.33vh] relative rounded-[0.5vw] overflow-hidden">
+            <img src={img1} alt="" className="w-full h-full object-cover" />
           </div>
-          <div className="relative w-[400px] h-[600px]  rounded-lg overflow-hidden">
-            <img src={img2} className="object-cover items-center" alt="" />
+          <div className="w-full h-[33.33vh] relative rounded-[0.5vw] overflow-hidden">
+            <img src={img2} alt="" className="w-full h-full object-cover" />
           </div>
-          <div className="relative w-[400px] h-[600px]  rounded-lg overflow-hidden">
-            <img src={img3} className="object-cover items-center" alt="" />
+          <div className="w-full h-[33.33vh] relative rounded-[0.5vw] overflow-hidden">
+            <img src={img3} alt="" className="w-full h-full object-cover" />
           </div>
-        </div>
-        <div className="flex flex-col w-4/12 gap-2">
-          <div className="relative w-[400px] h-[600px]  rounded-lg overflow-hidden">
-            <img src={img4} className="object-cover items-center" alt="" />
+        </motion.div>
+        <motion.div
+          style={{ y: y2 }}
+          className="w-4/12 h-full relative flex flex-col gap-[1vw] min-w-[250px] -top-[120%]"
+        >
+          <div className="w-full h-[33.33vh] relative rounded-[0.5vw] overflow-hidden">
+            <img src={img4} alt="" className="w-full h-full object-cover" />
           </div>
-          <div className="relative w-[400px] h-[600px]  rounded-lg overflow-hidden">
-            <img src={img5} className="object-cover items-center" alt="" />
+          <div className="w-full h-[33.33vh] relative rounded-[0.5vw] overflow-hidden">
+            <img src={img5} alt="" className="w-full h-full object-cover" />
           </div>
-          <div className="relative w-[400px] h-[600px]  rounded-lg overflow-hidden">
-            <img src={img6} className="object-cover items-center" alt="" />
+          <div className="w-full h-[33.33vh] relative rounded-[0.5vw] overflow-hidden">
+            <img src={img6} alt="" className="w-full h-full object-cover" />
           </div>
-        </div>
-        <div className="flex flex-col w-4/12 gap-2">
-          <div className="relative w-[400px] h-[600px]  rounded-lg overflow-hidden">
-            <img src={img7} className="object-cover items-center" alt="" />
+        </motion.div>
+        <motion.div
+          style={{ y: y3 }}
+          className="w-4/12 h-full relative flex flex-col gap-[1vw] min-w-[250px] -top-[65%]"
+        >
+          <div className="w-full h-[33.33vh] relative rounded-[0.5vw] overflow-hidden">
+            <img src={img7} alt="" className="w-full h-full object-cover" />
           </div>
-          <div className="relative w-[400px] h-[600px]  rounded-lg overflow-hidden">
-            <img src={img8} className="object-cover items-center" alt="" />
+          <div className="w-full h-[33.33vh] relative rounded-[0.5vw] overflow-hidden">
+            <img src={img8} alt="" className="w-full h-full object-cover" />
           </div>
-          <div className="relative w-[400px] h-[600px]  rounded-lg overflow-hidden">
-            <img src={img9} className="object-cover items-center" alt="" />
+          <div className="w-full h-[33.33vh] relative rounded-[0.5vw] overflow-hidden">
+            <img src={img9} alt="" className="w-full h-full object-cover" />
           </div>
-        </div>
+        </motion.div>
       </main>
       <div className="h-[100vh]" />
     </section>
