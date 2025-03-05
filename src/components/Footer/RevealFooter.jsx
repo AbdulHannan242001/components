@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 const RevealFooter = () => {
   return (
     <div
-      className="relative h-[80vh] border"
+      className="relative h-screen md:h-[80vh]"
       style={{ clipPath: "polygon(0% 0, 100% 0, 100% 100%, 0 100%)" }}
     >
       <div className="relative h-[calc(100vh+80vh)] -top-[100vh]">
         <div className="sticky top-[calc(100vh-80vh)] h-[80vh]">
-          <div className="bg-white h-full text-gray-800 flex flex-col justify-center px-[30px]">
-            <div className="flex flex-row justify-between py-12 border-b-2">
-              <div className="flex flex-row gap-12">
+          <div className="bg-white h-screen md:h-[80vh] text-gray-800 flex flex-col justify-center px-[30px]">
+            <div className="flex flex-col md:flex-row gap-4 justify-between py-12 border-b-2">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-12">
                 <div>
                   <p className="text-lg font-bold font-mono uppercase">
                     Tech Stack

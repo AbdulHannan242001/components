@@ -81,9 +81,9 @@ const TwoAxisSlider = () => {
     ];
 
     return (
-        <section className='h-[100vh] flex items-center justify-center bg-neutral-900'>
+        <section className='min-h-[100vh] flex flex-col md:flex-row items-center justify-center bg-neutral-900 gap-4'>
             {/* Text Section */}
-            <main className='w-4/12 flex flex-col justify-center h-full px-8'>
+            <main className='md:w-4/12 flex flex-col justify-center h-full px-8'>
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={currentSlide} // Key ensures component re-renders on slide change
@@ -115,13 +115,15 @@ const TwoAxisSlider = () => {
             </main>
 
             {/* Swiper Section */}
-            <main className='w-8/12 h-full flex flex-col justify-center'>
+            <main className='w-full md:w-8/12 h-full flex flex-col justify-center'>
                 <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <Swiper
                         modules={[Autoplay]}
                         spaceBetween={20}
                         slidesPerView={2}
                         breakpoints={{
+                            0: { slidesPerView: 1 },
+                            600: { slidesPerView: 2 },
                             1200: { slidesPerView: 3 },
                             1300: { slidesPerView: 2.5 },
                         }}

@@ -19,9 +19,9 @@ const InViewAnimation = () => {
 
     return (
         <main className="min-h-[100vh] bg-slate-50 flex items-center">
-            <div ref={containerRef} className="flex flex-row w-full min-h-screen">
-                <div className="p-30px h-screen w-6/12 flex items-center justify-center">
-                    <div className='w-10/12 h-[400px] relative'>
+            <div ref={containerRef} className="flex flex-col md:flex-row w-full min-h-screen">
+                <div className="p-[10px] md:p-[30px] h-fit md:h-screen w-full md:w-6/12 flex items-center justify-center">
+                    <div className='w-full md:w-10/12 h-[400px] relative'>
                         <motion.img
                             src={clouds}
                             alt="clouds"
@@ -38,9 +38,9 @@ const InViewAnimation = () => {
                         />
                     </div>
                 </div>
-                <div className="bg-slate-100 w-6/12 h-screen flex flex-col justify-center items-start p-[30px] ">
+                <div className="bg-slate-100 w-full md:w-6/12 h-fit md:h-screen flex flex-col justify-center items-start p-[10px] md:p-[30px] ">
                     <motion.span
-                        className="text-red-500 text-lg font-semibold font-mono"
+                        className="text-red-500 text-sm md:text-lg font-semibold font-mono"
                         variants={textVariant}
                         initial="hidden"
                         animate={isInView ? 'visible' : 'hidden'}
@@ -49,7 +49,7 @@ const InViewAnimation = () => {
                         In-View Animation
                     </motion.span>
                     <motion.p
-                        className="text-7xl text-zinc-800 font-bold leading-[70px] tracking-tighter pb-[20px]"
+                        className=" text-4xl md:text-7xl text-zinc-800 font-bold md:leading-[70px] tracking-tighter pb-[20px]"
                         variants={textVariant}
                         initial="hidden"
                         animate={isInView ? 'visible' : 'hidden'}
@@ -58,7 +58,7 @@ const InViewAnimation = () => {
                         LOOK AT THIS IMAGE IT LOOKS GREAT !!! <br /> DOESN'T IT ?
                     </motion.p>
                     <motion.p
-                        className="text-5xl text-zinc-600 font-semibold max-w-lg tracking-tight"
+                        className="text-2xl md:text-5xl text-zinc-600 font-semibold max-w-lg tracking-tight"
                         variants={textVariant}
                         initial="hidden"
                         animate={isInView ? 'visible' : 'hidden'}

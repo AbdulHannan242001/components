@@ -28,11 +28,11 @@ const ColumnParallax = () => {
       <div className="h-[100vh]" />
       <main
         ref={target}
-        className="h-[100vh] mx-auto w-fit flex flex-row gap-[1vw] bg-white rounded-2xl m-[30px] items-center justify-center overflow-hidden p-[1vw]"
+        className="h-[100vh] mx-auto w-fit flex flex-col md:flex-row gap-[1vw] bg-white rounded-2xl m-[30px] items-center justify-center overflow-hidden p-[1vw]"
       >
         <motion.div
           style={{ y: y1 }}
-          className="w-4/12 h-full relative flex flex-col gap-[1vw] min-w-[250px] -top-[100%]"
+          className="w-full md:w-4/12 h-full relative flex flex-col gap-[1vw] md:min-w-[250px] -top-[100%]"
         >
           <div className="w-full h-[33.33vh] relative rounded-[0.5vw] overflow-hidden">
             <img src={img1} alt="" className="w-full h-full object-cover" />
@@ -46,7 +46,7 @@ const ColumnParallax = () => {
         </motion.div>
         <motion.div
           style={{ y: y2 }}
-          className="w-4/12 h-full relative flex flex-col gap-[1vw] min-w-[250px] -top-[120%]"
+          className="w-full md:w-4/12 h-full relative flex flex-col gap-[1vw] md:min-w-[250px] -top-[120%]"
         >
           <div className="w-full h-[33.33vh] relative rounded-[0.5vw] overflow-hidden">
             <img src={img4} alt="" className="w-full h-full object-cover" />
@@ -61,7 +61,7 @@ const ColumnParallax = () => {
         {/* test */}
         <motion.div
           style={{ y: y3 }}
-          className="w-4/12 h-full relative flex flex-col gap-[1vw] min-w-[250px] -top-[65%]"
+          className="w-full md:w-4/12 h-full relative flex flex-col gap-[1vw] md:min-w-[250px] -top-[65%]"
         >
           <div className="w-full h-[33.33vh] relative rounded-[0.5vw] overflow-hidden">
             <img src={img7} alt="" className="w-full h-full object-cover" />

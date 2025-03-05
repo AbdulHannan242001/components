@@ -19,7 +19,7 @@ const InfiniteMarquee = () => {
         style={{ width: width1 }}
       >
         <motion.div
-          className="text-8xl font-black tracking-wider flex flex-shrink-0 py-6 bg-white text-black"
+          className="text-xl md:text-8xl font-black tracking-wider flex flex-shrink-0 py-2 md:py-6 bg-white text-black"
           initial={{ x: 0 }}
           animate={{ x: "-100%" }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
@@ -28,7 +28,7 @@ const InfiniteMarquee = () => {
           works.
         </motion.div>
         <motion.div
-          className="text-8xl font-black tracking-wider flex flex-shrink-0 py-6 bg-white text-black"
+          className="text-xl md:text-8xl font-black tracking-wider flex flex-shrink-0 py-2 md:py-6 bg-white text-black"
           initial={{ x: 0 }}
           animate={{ x: "-100%" }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
@@ -43,7 +43,7 @@ const InfiniteMarquee = () => {
         style={{ width: width2 }}
       >
         <motion.div
-          className="text-6xl text-white font-bold tracking-wider flex flex-shrink-0 py-6 bg-gradient-to-b from-sky-500 to-blue-500"
+          className="text-lg md:text-6xl text-white font-bold tracking-wider flex flex-shrink-0 py-1 md:py-6 bg-gradient-to-b from-sky-500 to-blue-500"
           initial={{ x: "-100%" }}
           animate={{ x: 0 }}
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
@@ -51,7 +51,7 @@ const InfiniteMarquee = () => {
           I Reckon another smaller one with the big one would look good.
         </motion.div>
         <motion.div
-          className="text-6xl text-white font-bold tracking-wider flex flex-shrink-0 py-6 pl-1 bg-gradient-to-b from-sky-500 to-blue-500"
+          className="text-lg md:text-6xl text-white font-bold tracking-wider flex flex-shrink-0 py-1 md:py-6 bg-gradient-to-b from-sky-500 to-blue-500"
           initial={{ x: "-100%" }}
           animate={{ x: 0 }}
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}

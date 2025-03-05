@@ -90,7 +90,7 @@ const ImageParallax = () => {
     ];
     return (
         <section className='flex flex-col justify-center items-center min-h-screen py-[10vh] space-y-[10vh] overflow-clip'>
-            <h1 className='text-neutral-300 text-9xl max-w-5xl mr-auto mx-24 font-mono leading-[6.8rem] tracking-[0.02rem]'>HELLO <br /> SOME SHIT <br /> IS  ABOUT TO <br /> HAPPEN BELOW</h1>
+            <h1 className='text-neutral-300 text-4xl md:text-9xl max-w-5xl md:mr-auto md:mx-24 font-mono md:leading-[6.8rem] tracking-[0.02rem]'>HELLO <br /> SOME SHIT <br /> IS  ABOUT TO <br /> HAPPEN BELOW</h1>
             <div ref={containerRef} className='h-[300vh] relative w-full'>
                 <div className='w-full h-[100vh] sticky top-0 overflow-clip'>
                     {
@@ -120,7 +120,7 @@ const ImageParallax = () => {
                     }
                 </div>
             </div>
-            <h1 className='text-neutral-300 text-9xl max-w-5xl mr-auto mx-24 font-mono leading-[6.8rem] tracking-[0.02rem]'>REST <br /> OF THE <br /> SITE GOES <br /> THERE ? MAYBE!</h1>
+            <h1 className='text-neutral-300 text-4xl md:text-9xl max-w-5xl md:mr-auto md:mx-24 font-mono md:leading-[6.8rem] tracking-[0.02rem]'>REST <br /> OF THE <br /> SITE GOES <br /> THERE ? MAYBE!</h1>
         </section>
     )
 }
