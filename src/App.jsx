@@ -29,6 +29,8 @@ import InfiniteMarquee from "./components/InfiniteMarquee/InfiniteMarquee";
 import RevealFooter from "./components/Footer/RevealFooter";
 import VerticalAccordion from "./components/VerticalCards/VerticalCards";
 import ColumnParallax from "./components/ColumnParallax/ColumnParallax";
+import BorderButton from "./components/Button/BorderButton";
+import SlidingNav from "./components/Navbar/SlidingNav";
 
 function App() {
   const cardImg = [
@@ -48,6 +50,7 @@ function App() {
     <Lenis root>
       <section className="flex flex-col scroll-smooth min-h-[100vh] min-w-screen bg-gradient-to-t from-neutral-800 to-neutral-900">
         <Button />
+        <BorderButton text={"Border Button"} color={"#ffffff"} />
         <SquishyCard />
         <TiltCard />
         <InvertedText />
@@ -83,6 +86,7 @@ function App() {
         <TwoAxisSlider />
         <InfiniteMarquee />
         <ColumnParallax />
+        <SlidingNav />
         {/* <VerticalAccordion /> */}
         <RevealFooter />
       </section>

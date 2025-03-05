@@ -9,8 +9,8 @@ const RevealFooter = () => {
     >
       <div className="relative h-[calc(100vh+80vh)] -top-[100vh]">
         <div className="sticky top-[calc(100vh-80vh)] h-[80vh]">
-          <div className="bg-white h-screen md:h-[80vh] text-gray-800 flex flex-col justify-center px-[30px]">
-            <div className="flex flex-col md:flex-row gap-4 justify-between py-12 border-b-2">
+          <div className="bg-white h-screen md:h-[80vh] text-gray-800 flex flex-col justify-center px-[10px] md:px-[30px]">
+            <div className="flex flex-col md:flex-row gap-4 justify-between py-4 md:py-12 border-b-2">
               <div className="flex flex-col md:flex-row gap-4 md:gap-12">
                 <div>
                   <p className="text-lg font-bold font-mono uppercase">
@@ -79,7 +79,7 @@ const RevealFooter = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: 50 }}
                 transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
-                className="text-7xl font-bold"
+                className="text-2xl md:text-7xl font-bold"
               >
                 ABDUL HANNAN SIDDIQUI
               </motion.p>

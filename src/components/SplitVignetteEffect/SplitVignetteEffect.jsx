@@ -29,7 +29,7 @@ const SplitVignetteEffect = () => {
   const mouseMove = (e) => {
     const { clientX, clientY } = e
     const targetX = clientX - (window.innerHeight * 0.125)
-    const targetY = clientY - (window.innerWidth * 0.080)
+    const targetY = clientY - (window.innerWidth * 0.070)
     mousePosition.x.set(targetX)
     mousePosition.y.set(targetY)
 
