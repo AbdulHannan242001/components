@@ -31,6 +31,7 @@ import VerticalAccordion from "./components/VerticalCards/VerticalCards";
 import ColumnParallax from "./components/ColumnParallax/ColumnParallax";
 import BorderButton from "./components/Button/BorderButton";
 import SlidingNav from "./components/Navbar/SlidingNav";
+import ArrowButton from "./components/Button/ArrowButton";
 
 function App() {
   const cardImg = [
@@ -50,6 +51,7 @@ function App() {
     <Lenis root>
       <section className="flex flex-col scroll-smooth min-h-[100vh] min-w-screen bg-gradient-to-t from-neutral-800 to-neutral-900">
         <Button />
+        <ArrowButton text={"Arrow Button"} />
         <BorderButton text={"Border Button"} color={"#ffffff"} />
         <SquishyCard />
         <TiltCard />
