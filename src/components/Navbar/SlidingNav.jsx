@@ -104,6 +104,9 @@ const SlidingNav = () => {
           </div>
         </div>
       </div>
+      <div className="h-full w-full items-center justify-center flex">
+        <p className="text-7xl font-black text-gray-300">Scroll To Discover</p>
+      </div>
     </div>
   );
 };

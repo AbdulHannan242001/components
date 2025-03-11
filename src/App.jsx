@@ -27,11 +27,11 @@ import SwiperSlider from "./components/SwiperSlider/SwiperSlider";
 import TwoAxisSlider from "./components/TwoAxisSlider/TwoAxisSlider";
 import InfiniteMarquee from "./components/InfiniteMarquee/InfiniteMarquee";
 import RevealFooter from "./components/Footer/RevealFooter";
-import VerticalAccordion from "./components/VerticalCards/VerticalCards";
 import ColumnParallax from "./components/ColumnParallax/ColumnParallax";
 import BorderButton from "./components/Button/BorderButton";
 import SlidingNav from "./components/Navbar/SlidingNav";
 import ArrowButton from "./components/Button/ArrowButton";
+import OverlapButton from "./components/Button/OverlapButton";
 
 function App() {
   const cardImg = [
@@ -50,15 +50,27 @@ function App() {
   return (
     <Lenis root>
       <section className="flex flex-col scroll-smooth min-h-[100vh] min-w-screen bg-gradient-to-t from-neutral-800 to-neutral-900">
+        <SlidingNav />
         <Button />
         <ArrowButton text={"Arrow Button"} />
         <BorderButton text={"Border Button"} color={"#ffffff"} />
+        <ShinyButton />
+        <OverlapButton />
         <SquishyCard />
         <TiltCard />
-        <InvertedText />
-        <Word />
         <CustomBorder />
         <ColorCards />
+        <InvertedText />
+        <Word />
+        <SkewText />
+        {/* <HoverCards
+          title={"Hover Cards"}
+          description={
+            "This is some text or maybe some description. Gotta keep writing in real world cases, descriptions are pretty long. Almost there I think this will be enough."
+          }
+          svg={svg}
+          image={image}
+        /> */}
         <Carousel3d
           images={cardImg}
           // radius={400} already have a default value but can be changed
@@ -66,30 +78,18 @@ function App() {
           // width={250} already have a default value but can be changed
           // height={300} already have a default value but can be changed
         />
-        <SkewText />
-        <ShinyButton />
         <ContactForm />
-        <HoverCards
-          title={"Hover Cards"}
-          description={
-            "This is some text or maybe some description. Gotta keep writing in real world cases, descriptions are pretty long. Almost there I think this will be enough."
-          }
-          svg={svg}
-          image={image}
-        />
         <FloatingPhone />
         <SplitVignetteEffect />
         <CallToAction />
         <ParallaxSection />
-        <BallSwitchSlider />
         <ImageParallax />
+        <ColumnParallax />
+        <BallSwitchSlider />
         <InViewAnimation />
         <SwiperSlider />
         <TwoAxisSlider />
         <InfiniteMarquee />
-        <ColumnParallax />
-        <SlidingNav />
-        {/* <VerticalAccordion /> */}
         <RevealFooter />
       </section>
     </Lenis>
