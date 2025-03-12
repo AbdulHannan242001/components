@@ -3,7 +3,7 @@ import { TbArrowRight } from "react-icons/tb";
 import { motion } from "framer-motion";
 
 const ArrowButton = ({ text }) => {
-  const [position, setPosition] = useState({ x: "50%", y: "-40%" }); // Initial position
+  const [position, setPosition] = useState({ x: "0%", y: "-40%" }); // Initial position
   const divSize = 40; // Size of the white circle
   const buttonRef = useRef(null);
 
@@ -24,14 +24,14 @@ const ArrowButton = ({ text }) => {
 
   // Reset to original position when mouse leaves
   const handleMouseLeave = () => {
-    setPosition({ x: "50%", y: "-40%" });
+    setPosition({ x: "0%", y: "-40%" });
   };
 
   return (
     <div className="h-screen flex items-center justify-center">
       <div
         ref={buttonRef}
-        className="w-fit cursor-pointer overflow-hidden bg-gradient-to-tr from-violet-500 to-indigo-500 px-3 py-2 flex flex-row gap-2 text-white text-lg font-medium items-center relative z-10"
+        className="w-fit active:scale-95 cursor-pointer overflow-hidden bg-gradient-to-tr from-violet-500 to-indigo-500 px-3 py-2 flex flex-row gap-2 text-white text-lg font-medium items-center relative z-10"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
@@ -45,7 +45,7 @@ const ArrowButton = ({ text }) => {
             left: position.x,
             top: position.y,
           }}
-          initial={{ left: "50%", top: "-40%" }}
+          initial={{ left: "0%", top: "-40%" }}
           animate={{ left: position.x, top: position.y }}
         />
       </div>

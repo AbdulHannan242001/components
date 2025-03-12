@@ -13,7 +13,7 @@ const DrawOutlineButton = ({ children, ...rest }) => {
   return (
     <button
       {...rest}
-      className={`text-base group relative px-4 py-2 font-medium text-white transition-colors duration-[400ms] hover:text-orange-100 hover:scale-105 hover:shadow-md hover:shadow-orange-700 w-fit`}
+      className={`text-base group relative px-4 py-2 font-medium text-white transition-colors duration-[400ms] hover:text-orange-100 hover:scale-105 active:shadow-md active:shadow-orange-700 w-fit`}
     >
       <span className="flex items-center">
         {children}{" "}

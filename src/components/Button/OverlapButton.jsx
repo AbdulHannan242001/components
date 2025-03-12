@@ -39,6 +39,7 @@ const OverlapButton = () => {
         variants={buttonVariants}
         initial="initial"
         whileHover="hover"
+        whileTap={{scale: 1}}
       >
         <motion.div
           className="absolute inset-0 z-10 rounded-[100%] bg-zinc-100"
