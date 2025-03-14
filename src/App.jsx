@@ -32,6 +32,7 @@ import BorderButton from "./components/Button/BorderButton";
 import SlidingNav from "./components/Navbar/SlidingNav";
 import ArrowButton from "./components/Button/ArrowButton";
 import OverlapButton from "./components/Button/OverlapButton";
+import InvertedCard from "./components/InvertedCard/InvertedCard";
 
 function App() {
   const cardImg = [
@@ -60,6 +61,7 @@ function App() {
         <TiltCard />
         <CustomBorder />
         <ColorCards />
+        <InvertedCard />
         <InvertedText />
         <Word />
         <SkewText />
