@@ -34,7 +34,7 @@ const InvertedText = () => {
                 style={divStyle}
                 className='h-52 w-52 bg-white absolute '
             />
-            <div className='relative text-8xl text-white max-h-[100vh] max-w-[100vw]'>
+            <div className='relative text-4xl md:text-8xl text-white max-h-[100vh] max-w-[100vw]'>
                 <p className='relative z-10 mix-blend-exclusion font-mono font-thin'>
                     Some Text Goes Here
                 </p>

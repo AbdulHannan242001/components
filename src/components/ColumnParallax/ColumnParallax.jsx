@@ -19,9 +19,9 @@ const ColumnParallax = () => {
     offset: ["start end", "end start"],
   });
 
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, windowHeight * 1.9]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, windowHeight * 2.3]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, windowHeight * 1.25]);
+  const y1 = useTransform(scrollYProgress, [0, 0.9], [0, windowHeight * 1.9]);
+  const y2 = useTransform(scrollYProgress, [0, 0.9], [0, windowHeight * 2.3]);
+  const y3 = useTransform(scrollYProgress, [0, 0.9], [0, windowHeight * 1.25]);
 
   return (
     <section>

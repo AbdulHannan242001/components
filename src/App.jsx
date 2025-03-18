@@ -33,6 +33,7 @@ import SlidingNav from "./components/Navbar/SlidingNav";
 import ArrowButton from "./components/Button/ArrowButton";
 import OverlapButton from "./components/Button/OverlapButton";
 import InvertedCard from "./components/InvertedCard/InvertedCard";
+import BentoGrid from "./components/Bento/BentoGrid";
 
 function App() {
   const cardImg = [
@@ -55,6 +56,7 @@ function App() {
         <Button />
         <ArrowButton text={"Arrow Button"} />
         <BorderButton text={"Border Button"} color={"#ffffff"} />
+        <BallSwitchSlider />
         <ShinyButton />
         <OverlapButton />
         <SquishyCard />
@@ -87,11 +89,11 @@ function App() {
         <ParallaxSection />
         <ImageParallax />
         <ColumnParallax />
-        <BallSwitchSlider />
         <InViewAnimation />
         <SwiperSlider />
         <TwoAxisSlider />
         <InfiniteMarquee />
+        <BentoGrid  />
         <RevealFooter />
       </section>
     </Lenis>
