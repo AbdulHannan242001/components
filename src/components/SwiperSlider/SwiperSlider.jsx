@@ -58,7 +58,7 @@ const SwiperSlider = () => {
     ]
 
     return (
-        <main className='h-[100vh] flex flex-col justify-center'>
+        <main className='min-h-[100vh] py-[60px] flex flex-col justify-center'>
             <section className='px-8'>
                 <div className='flex flex-row items-center justify-between mb-6'>
                     <h2 className='text-5xl font-semibold font-mono'>Title Goes Here</h2>

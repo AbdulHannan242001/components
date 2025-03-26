@@ -75,10 +75,10 @@ const SlidingNav = () => {
           <motion.h1
             key={item}
             variants={linkVariants}
-            className="text-white text-6xl font-bold max-w-[1600px] w-full mx-auto cursor-pointer"
+            className="text-white text-3xl md:text-5xl font-bold max-w-[1600px] w-full mx-auto cursor-pointer"
           >
             <motion.button
-              className="p-4"
+              className="px-4 py-2 md:p-4"
               whileHover={{ scale: 1.1, rotateZ: -10}}
               whileTap={{ scale: 0.9 }}
             >
@@ -105,7 +105,7 @@ const SlidingNav = () => {
         </div>
       </div>
       <div className="h-full w-full items-center justify-center flex">
-        <p className="text-7xl font-black text-gray-300">Scroll To Discover</p>
+        <p className="text-3xl md:text-5xl font-black text-gray-300">Scroll To Discover</p>
       </div>
     </div>
   );

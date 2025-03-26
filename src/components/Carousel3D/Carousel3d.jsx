@@ -13,7 +13,7 @@ const Carousel3d = ({ images = [], radius = 500, duration = 20, width = 200, hei
     };
 
     return (
-        <section className='w-[100%] min-h-screen text-center overflow-hidden relative flex items-center justify-center'>
+        <section className='w-[100%] py-[60px] min-h-screen text-center overflow-hidden relative flex items-center justify-center'>
             <motion.div
                 className="relative"
                 style={{

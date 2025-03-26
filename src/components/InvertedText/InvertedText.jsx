@@ -29,10 +29,10 @@ const InvertedText = () => {
     };
 
     return (
-        <section className='cursor-none min-h-screen min-w-full flex items-center justify-center relative overflow-hidden'>
+        <section className='min-h-[100vh] py-[60px] px-2 cursor-none min-w-full flex items-center justify-center relative overflow-hidden'>
             <motion.div
                 style={divStyle}
-                className='h-52 w-52 bg-white absolute '
+                className='h-32 w-32 md:h-52 md:w-52 bg-white absolute '
             />
             <div className='relative text-4xl md:text-8xl text-white max-h-[100vh] max-w-[100vw]'>
                 <p className='relative z-10 mix-blend-exclusion font-mono font-thin'>

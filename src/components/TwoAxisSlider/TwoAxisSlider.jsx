@@ -81,7 +81,7 @@ const TwoAxisSlider = () => {
     ];
 
     return (
-        <section className='min-h-[100vh] flex flex-col md:flex-row items-center justify-center bg-neutral-900 gap-4'>
+        <section className='min-h-[100vh] py-[60px] flex flex-col md:flex-row items-center justify-center bg-neutral-900 gap-4'>
             {/* Text Section */}
             <main className='md:w-4/12 flex flex-col justify-center h-full px-8'>
                 <AnimatePresence mode="wait">
@@ -124,8 +124,8 @@ const TwoAxisSlider = () => {
                         breakpoints={{
                             0: { slidesPerView: 1 },
                             600: { slidesPerView: 2 },
-                            1200: { slidesPerView: 3 },
-                            1300: { slidesPerView: 2.5 },
+                            1200: { slidesPerView: 2 },
+                            1300: { slidesPerView: 2 },
                         }}
                         loop={true}
                         autoplay={{ delay: 5000 }}
@@ -136,9 +136,9 @@ const TwoAxisSlider = () => {
                             <SwiperSlide key={index}>
                                 <div
                                     className={`${index === currentSlide
-                                        ? 'w-[400px] h-[530px]'
+                                        ? 'w-full md:w-[400px] h-auto md:h-[530px]'
                                         : 'mt-[25px]'
-                                        } w-[380px] h-[480px] object-cover rounded-md`}
+                                        } w-full h-auto md:w-[380px] md:h-[480px] object-cover rounded-md`}
                                 >
                                     <img
                                         src={data.img}

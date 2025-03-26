@@ -2,7 +2,7 @@ import React from 'react'
 
 const CustomBorder = () => {
     return (
-        <section className='flex items-center justify-center min-h-screen'>
+        <section className='flex items-center justify-center min-h-[100vh] py-[60px] px-2'>
             <div className='relative flex items-center justify-center w-fit h-auto p-1'>
                 {/* Background div with gradient and shadow */}
                 <div className='absolute inset-0 z-0 p-4 rounded '>

@@ -21,7 +21,7 @@ const ContactForm = () => {
     };
 
     return (
-        <section className="flex items-center justify-center min-h-screen w-full">
+        <section className="flex items-center justify-center py-[60px] px-2 min-h-screen w-full">
             <div className="relative w-full max-w-lg p-8 space-y-8 bg-neutral-950 z-[50] rounded-xl shadow-2xl overflow-clip bg-blend-saturation">
                 <div className='absolute -top-16 left-1/2 -translate-x-1/2 size-32 z-[-1] rounded-full bg-gray-500/60 blur-3xl'></div>
                 <h2 className="text-4xl font-bold text-center text-white tracking-wide">Get in Touch</h2>

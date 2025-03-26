@@ -3,7 +3,7 @@ import { FiBatteryCharging, FiWifi } from "react-icons/fi";
 import saska from "../../assets/Saska.png";
 const FloatingPhone = () => {
     return (
-        <section className="min-h-[100vh] flex justify-center items-center">
+        <section className="min-h-[100vh] py-[60px] flex justify-center items-center">
             <div
                 style={{
                     transformStyle: "preserve-3d",

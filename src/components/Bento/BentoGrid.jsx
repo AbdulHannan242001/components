@@ -30,7 +30,7 @@ const BentoGrid = () => {
   };
 
   return (
-    <section className="flex justify-center items-center min-h-screen w-full text-black">
+    <section className="flex justify-center items-center min-h-screen py-[60px] w-full text-black">
       <div
         ref={buttonRef}
         onMouseMove={handleMouseMove}
@@ -61,10 +61,10 @@ const BentoGrid = () => {
                 Aired On April 26, 1989
               </p>
               <div className="flex flex-col md:flex-row justify-between items-end gap-4">
-                <p className="font-semibold text-4xl md:text-7xl tracking-tighter leading-none">
+                <p className="font-semibold text-3xl md:text-5xl tracking-tighter leading-none">
                   TOEI ANIMATION
                 </p>
-                <div className="flex flex-wrap flex-row gap-2">
+                <div className="flex flex-col w-full md:flex-row gap-2">
                   <div className="h-[150px] md:w-fit w-full max-w-full md:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
                     <p className="text-xl font-semibold">Protagonist</p>
                     <p>Son Goku</p>
@@ -93,7 +93,7 @@ const BentoGrid = () => {
                 HISTORY
               </p>
               <p className="text-base md:text-xl leading-none">
-                <p className="font-semibold text-4xl md:text-7xl tracking-tighter leading-none">
+                <p className="font-semibold text-3xl md:text-5xl tracking-tighter leading-none">
                   SEQUEAL TO THE DRAGON BALL
                 </p>
               </p>
@@ -120,7 +120,7 @@ const BentoGrid = () => {
             </div>
           </div>
           <div className="w-full md:w-3/12 bg-neutral-100 overflow-hidden hover:rounded-xl rounded-3xl transition-all duration-200">
-            <motion.img whileHover={{ scale: 1.1 }} src={dbz} alt="" />
+            <motion.img whileHover={{ scale: 1.1 }} src={dbz} alt="" className="h-full w-auto object-center object-cover" />
           </div>
         </div>
       </div>
