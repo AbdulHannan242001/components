@@ -38,7 +38,7 @@ const InViewAnimation = () => {
                         />
                     </div>
                 </div>
-                <div className="bg-slate-100 w-full md:w-6/12 h-fit md:h-screen flex flex-col justify-center items-start p-[10px] md:p-[30px] ">
+                <div className="bg-slate-200 w-full md:w-6/12 h-full min-h-[350px] md:min-h-screen flex flex-col justify-center items-start p-[10px] md:p-[30px] ">
                     <motion.span
                         className="text-red-500 text-sm md:text-lg font-semibold font-mono"
                         variants={textVariant}

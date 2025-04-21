@@ -34,6 +34,7 @@ import ArrowButton from "./components/Button/ArrowButton";
 import OverlapButton from "./components/Button/OverlapButton";
 import InvertedCard from "./components/InvertedCard/InvertedCard";
 import BentoGrid from "./components/Bento/BentoGrid";
+import ShutterCard from "./components/ShutterCard/ShutterCard";
 
 function App() {
   const cardImg = [
@@ -64,6 +65,13 @@ function App() {
         <CustomBorder />
         <ColorCards />
         <InvertedCard />
+        <ShutterCard
+          heading="Some Heading"
+          description="This can be a description about the service or product or pretty much anything you can use this card for. Its looks real good in terms of these micro interactions."
+          topText="Hover me"
+          bottomText="A short intimate description"
+          imageSrc={image}
+        />
         <InvertedText />
         <Word />
         <SkewText />
@@ -93,7 +101,7 @@ function App() {
         <SwiperSlider />
         <TwoAxisSlider />
         <InfiniteMarquee />
-        <BentoGrid  />
+        <BentoGrid />
         <RevealFooter />
       </section>
     </Lenis>

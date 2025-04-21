@@ -14,7 +14,7 @@ const Word = () => {
     return (
         <section ref={ref} className='relative min-h-[200vh] py-[60px]'>
             <motion.div className='sticky top-10 flex justify-center'>
-                <p className='text-white flex flex-wrap mx-auto px-4 md:px-12 md:text-6xl text-3xl font-thin font-serif tracking-wider leading-10'>
+                <p className='text-white flex flex-wrap mx-auto px-4 md:px-12 md:text-6xl text-3xl font-thin font-serif tracking-wide'>
                     {words.map((word, index) => {
                         const start = index / words.length;
                         const end = start + (1 / words.length);
@@ -29,9 +29,9 @@ const Word = () => {
 export default Word;
 
 const Wo = ({ children, range, progress }) => {
-    const opacity = useTransform(progress, range, [0.3, 1]);
+    const opacity = useTransform(progress, range, [0.025, 1]);
     return (
-        <motion.span style={{ opacity }} className='mr-2'>
+        <motion.span style={{ opacity }} className='mr-3'>
             {children}
         </motion.span>
     );
