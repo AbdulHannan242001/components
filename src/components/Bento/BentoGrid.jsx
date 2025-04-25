@@ -1,32 +1,32 @@
 import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 import star from "../../assets/Star.png";
 import dbz from "../../assets/DBZ.png";
 
 const BentoGrid = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const [position, setPosition] = useState({ x: "0%", y: "-5%" }); // Initial position
-  const divSize = 60; // Size of the white circle
   const buttonRef = useRef(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(-15); // Initial top: -5% of 300px (min-h-[300px]) ≈ -15px
+  const divSize = 180;
 
-  // Handle mouse movement within the button
   const handleMouseMove = (event) => {
     if (!buttonRef.current) return;
 
     const rect = buttonRef.current.getBoundingClientRect();
-    const x = event.clientX - rect.left; // X relative to button
-    const y = event.clientY - rect.top; // Y relative to button
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
 
-    // Center the circle on the cursor (adjust for circle size)
-    const newX = Math.max(0, Math.min(x - divSize / 2, rect.width - divSize));
-    const newY = Math.max(0, Math.min(y - divSize / 2, rect.height - divSize));
+    const newX = Math.max(0, Math.min(mouseX - divSize / 2, rect.width - divSize));
+    const newY = Math.max(0, Math.min(mouseY - divSize / 2, rect.height - divSize));
 
-    setPosition({ x: newX, y: newY });
+    x.set(newX);
+    y.set(newY);
   };
 
-  // Reset to original position when mouse leaves
   const handleMouseLeave = () => {
-    setPosition({ x: "0%", y: "-5%" });
+    x.set(0);
+    y.set(-15); // Reset to -5% ≈ -15px
   };
 
   return (
@@ -38,13 +38,10 @@ const BentoGrid = () => {
         className="flex flex-col p-2 gap-2 bg-black rounded-2xl w-full md:w-8/12 relative overflow-hidden z-10"
       >
         <motion.div
-          className="absolute size-32 bg-gradient-to-tr from-yellow-200 to-amber-400 rounded-full blur-2xl z-10"
-          style={{
-            left: position.x,
-            top: position.y,
-          }}
-          initial={{ left: "0%", top: "-5%" }}
-          animate={{ left: position.x, top: position.y }}
+          className="absolute size-[180px] bg-gradient-to-tr from-yellow-200 to-amber-400 rounded-full blur-2xl z-10"
+          style={{ x, y }}
+          initial={{ x: 0, y: -15 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
         />
         <div className="flex flex-col md:flex-row gap-2 min-h-[300px] relative z-50">
           <div className="w-full md:w-3/12 bg-neutral-100 p-[20px] hover:bg-gradient-to-b from-orange-500 to-amber-500 hover:text-white hover:rounded-xl rounded-3xl transition-all duration-300">
@@ -64,16 +61,16 @@ const BentoGrid = () => {
                 <p className="font-semibold text-3xl md:text-5xl tracking-tighter leading-none">
                   TOEI ANIMATION
                 </p>
-                <div className="flex flex-col w-full md:flex-row gap-2">
-                  <div className="h-[150px] md:w-fit w-full max-w-full md:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
+                <div className="flex flex-col md:flex-row gap-2 w-full">
+                  <div className="h-[150px] w-full md:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
                     <p className="text-xl font-semibold">Protagonist</p>
                     <p>Son Goku</p>
                   </div>
-                  <div className="h-[150px] md:w-fit w-full max-w-full md:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
+                  <div className="h-[150px] w-full md:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
                     <p className="text-xl font-semibold">Episodes</p>
                     <p>291</p>
                   </div>
-                  <div className="h-[150px] md:w-fit w-full max-w-full md:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
+                  <div className="h-[150px] w-full md:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
                     <p className="text-xl font-semibold">Seasons</p>
                     <p>9</p>
                   </div>
@@ -93,9 +90,9 @@ const BentoGrid = () => {
                 HISTORY
               </p>
               <p className="text-base md:text-xl leading-none">
-                <p className="font-semibold text-3xl md:text-5xl tracking-tighter leading-none">
-                  SEQUEAL TO THE DRAGON BALL
-                </p>
+                <span className="font-semibold text-3xl md:text-5xl tracking-tighter leading-none">
+                  SEQUEL TO THE DRAGON BALL
+                </span>
               </p>
             </div>
             <div className="h-full w-4/12 flex items-center justify-center">
@@ -113,14 +110,19 @@ const BentoGrid = () => {
               >
                 <img
                   src={star}
-                  alt=""
+                  alt="Star"
                   className="absolute size-[28px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                 />
               </motion.div>
             </div>
           </div>
           <div className="w-full md:w-3/12 bg-neutral-100 overflow-hidden hover:rounded-xl rounded-3xl transition-all duration-200">
-            <motion.img whileHover={{ scale: 1.1 }} src={dbz} alt="" className="h-full w-auto object-center object-cover" />
+            <motion.img
+              whileHover={{ scale: 1.1 }}
+              src={dbz}
+              alt="Dragon Ball Z"
+              className="h-full w-auto object-center object-cover"
+            />
           </div>
         </div>
       </div>

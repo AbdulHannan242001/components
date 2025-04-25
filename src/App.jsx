@@ -35,6 +35,7 @@ import OverlapButton from "./components/Button/OverlapButton";
 import InvertedCard from "./components/InvertedCard/InvertedCard";
 import BentoGrid from "./components/Bento/BentoGrid";
 import ShutterCard from "./components/ShutterCard/ShutterCard";
+import TextButton from "./components/Button/TextButton";
 
 function App() {
   const cardImg = [
@@ -55,11 +56,12 @@ function App() {
       <section className="flex flex-col scroll-smooth min-h-[100vh] min-w-screen bg-gradient-to-t from-neutral-800 to-neutral-900">
         <SlidingNav />
         <Button />
-        <ArrowButton text={"Arrow Button"} />
+        <ArrowButton text={"Lit Button"} />
         <BorderButton text={"Border Button"} color={"#ffffff"} />
         <BallSwitchSlider />
         <ShinyButton />
         <OverlapButton />
+        <TextButton />
         <SquishyCard />
         <TiltCard />
         <CustomBorder />

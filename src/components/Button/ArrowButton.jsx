@@ -1,30 +1,30 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { TbArrowRight } from "react-icons/tb";
-import { motion } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 
 const ArrowButton = ({ text }) => {
-  const [position, setPosition] = useState({ x: "0%", y: "-40%" }); // Initial position
-  const divSize = 40; // Size of the white circle
   const buttonRef = useRef(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(-16); // Initial top: -40% of 40px = -16px
+  const divSize = 34;
 
-  // Handle mouse movement within the button
   const handleMouseMove = (event) => {
     if (!buttonRef.current) return;
 
     const rect = buttonRef.current.getBoundingClientRect();
-    const x = event.clientX - rect.left; // X relative to button
-    const y = event.clientY - rect.top; // Y relative to button
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
 
-    // Center the circle on the cursor (adjust for circle size)
-    const newX = Math.max(0, Math.min(x - divSize / 2, rect.width - divSize));
-    const newY = Math.max(0, Math.min(y - divSize / 2, rect.height - divSize));
+    const newX = Math.max(0, Math.min(mouseX - divSize / 2, rect.width - divSize));
+    const newY = Math.max(0, Math.min(mouseY - divSize / 2, rect.height - divSize));
 
-    setPosition({ x: newX, y: newY });
+    x.set(newX);
+    y.set(newY);
   };
 
-  // Reset to original position when mouse leaves
   const handleMouseLeave = () => {
-    setPosition({ x: "0%", y: "-40%" });
+    x.set(0);
+    y.set(-16); // Reset to -40% (40px * -0.4 = -16px)
   };
 
   return (
@@ -40,13 +40,10 @@ const ArrowButton = ({ text }) => {
           <TbArrowRight size={22} />
         </span>
         <motion.div
-          className="absolute size-12 bg-white rounded-full blur-xl"
-          style={{
-            left: position.x,
-            top: position.y,
-          }}
-          initial={{ left: "0%", top: "-40%" }}
-          animate={{ left: position.x, top: position.y }}
+          className="absolute size-[34px] bg-white rounded-full blur-xl"
+          style={{ x, y }}
+          initial={{ x: 0, y: -16 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
         />
       </div>
     </div>
