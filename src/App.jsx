@@ -36,6 +36,7 @@ import InvertedCard from "./components/InvertedCard/InvertedCard";
 import BentoGrid from "./components/Bento/BentoGrid";
 import ShutterCard from "./components/ShutterCard/ShutterCard";
 import TextButton from "./components/Button/TextButton";
+import CircularButton from "./components/Button/CircularButton";
 
 function App() {
   const cardImg = [
@@ -62,6 +63,7 @@ function App() {
         <ShinyButton />
         <OverlapButton />
         <TextButton />
+        <CircularButton text={"Circular Button"} />
         <SquishyCard />
         <TiltCard />
         <CustomBorder />

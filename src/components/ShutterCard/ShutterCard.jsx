@@ -21,7 +21,7 @@ const AnimatedCard = ({
           controls.start({ height: "50%" });
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-pink-500 to-pink-400 p-4 z-0 flex flex-col justify-between">
+        <div className="absolute inset-0 bg-gradient-to-t from-sky-500 to-blue-400 p-4 z-0 flex flex-col justify-between">
           <h2 className="text-xl font-bold text-white">{heading}</h2>
           <p className="text-white text-sm">{description}</p>
         </div>
