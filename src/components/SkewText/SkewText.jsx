@@ -13,11 +13,11 @@ const SkewText = () => {
     const skewXRaw = useTransform(
         scrollVelocity,
         [-0.9, 0.9],
-        ['45deg', '-45deg']
+        ['30deg', '-30deg']
     )
     const skewX = useSpring(skewXRaw, { stiffness: 200, mass: 2, damping: 15 })
 
-    const xRaw = useTransform(scrollYProgress, [0, 1], [0, -3500]);
+    const xRaw = useTransform(scrollYProgress, [0, 1], [0, -2400]);
     const x = useSpring(xRaw,)
 
     return (
@@ -29,7 +29,7 @@ const SkewText = () => {
                         x,
                     }}
                     className="origin-bottom-left whitespace-nowrap text-5xl md:text-7xl font-bold text-neutral-900 uppercase leading-[0.85] md:leading-[0.85]">
-                    This text leans left when going down, and leans right when going up. How cool is that :D
+                    This text leans left when going up, and leans right when going down. How cool is that :D
                 </motion.p>
             </div >
         </section >

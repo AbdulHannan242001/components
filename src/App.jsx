@@ -37,6 +37,8 @@ import BentoGrid from "./components/Bento/BentoGrid";
 import ShutterCard from "./components/ShutterCard/ShutterCard";
 import TextButton from "./components/Button/TextButton";
 import CircularButton from "./components/Button/CircularButton";
+import TextMask from "./components/TextMask/TextMask";
+import SeperateBanner from "./components/Banner/SeperateBanner";
 
 function App() {
   const cardImg = [
@@ -78,6 +80,7 @@ function App() {
         />
         <InvertedText />
         <Word />
+        <TextMask />
         <SkewText />
         {/* <HoverCards
           title={"Hover Cards"}
@@ -99,6 +102,7 @@ function App() {
         <SplitVignetteEffect />
         <CallToAction />
         <ParallaxSection />
+        <SeperateBanner />
         <ImageParallax />
         <ColumnParallax />
         <InViewAnimation />
