@@ -41,6 +41,7 @@ import TextMask from "./components/TextMask/TextMask";
 import SeperateBanner from "./components/Banner/SeperateBanner";
 import Card from "./components/ParallaxCard/Card";
 import Grid from "./components/ReflectiveGrid/Grid";
+import ScaleSection from "./components/ScaleSection/ScaleSection";
 
 function App() {
   const cardImg = [
@@ -84,6 +85,7 @@ function App() {
         <InvertedText />
         <Word />
         <TextMask />
+        <ScaleSection />
         <SkewText />
         {/* <HoverCards
           title={"Hover Cards"}

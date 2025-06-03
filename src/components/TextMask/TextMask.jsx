@@ -18,14 +18,14 @@ const TextMask = () => {
 
   return (
     <section ref={containerRef} className="relative flex bg-black justify-center items-start h-[200dvh] py-[60px] w-full text-black">
-      <div class="sticky top-0 text-white text-[12vw] font-bold">
-        <h1 class="relative z-10 font-mono leading-none tracking-tighter mix-blend-exclusion">
+      <div className="sticky top-0 text-white text-[12vw] font-bold">
+        <h1 className="relative z-10 font-mono leading-none tracking-tighter mix-blend-exclusion">
           Let's build a
         </h1>
 
-        <motion.img style={{ y : img1}} src={camera} class="absolute bottom-48 left-10 w-24 md:w-40" />
-        <motion.img style={{ y : img2}} src={island} class="absolute bottom-32 left-1/3 w-24 md:w-40" />
-        <motion.img style={{ y : img3}} src={earphones} class="absolute bottom-20 left-2/3 w-24 md:w-40" />
+        <motion.img style={{ y : img1}} src={camera} className="absolute bottom-48 left-10 w-24 md:w-40" />
+        <motion.img style={{ y : img2}} src={island} className="absolute bottom-32 left-1/3 w-24 md:w-40" />
+        <motion.img style={{ y : img3}} src={earphones} className="absolute bottom-20 left-2/3 w-24 md:w-40" />
       </div>
     </section>
   );
