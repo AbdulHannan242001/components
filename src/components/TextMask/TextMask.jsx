@@ -23,9 +23,9 @@ const TextMask = () => {
           Let's build a
         </h1>
 
-        <motion.img style={{ y : img1}} src={camera} class="absolute bottom-48 left-10 w-40" />
-        <motion.img style={{ y : img2}} src={island} class="absolute bottom-32 left-1/3 w-40" />
-        <motion.img style={{ y : img3}} src={earphones} class="absolute bottom-20 left-2/3 w-40" />
+        <motion.img style={{ y : img1}} src={camera} class="absolute bottom-48 left-10 w-24 md:w-40" />
+        <motion.img style={{ y : img2}} src={island} class="absolute bottom-32 left-1/3 w-24 md:w-40" />
+        <motion.img style={{ y : img3}} src={earphones} class="absolute bottom-20 left-2/3 w-24 md:w-40" />
       </div>
     </section>
   );

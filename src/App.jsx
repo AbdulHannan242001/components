@@ -39,6 +39,8 @@ import TextButton from "./components/Button/TextButton";
 import CircularButton from "./components/Button/CircularButton";
 import TextMask from "./components/TextMask/TextMask";
 import SeperateBanner from "./components/Banner/SeperateBanner";
+import Card from "./components/ParallaxCard/Card";
+import Grid from "./components/ReflectiveGrid/Grid";
 
 function App() {
   const cardImg = [
@@ -78,6 +80,7 @@ function App() {
           bottomText="A short intimate description"
           imageSrc={image}
         />
+        <Card />
         <InvertedText />
         <Word />
         <TextMask />
@@ -102,6 +105,7 @@ function App() {
         <SplitVignetteEffect />
         <CallToAction />
         <ParallaxSection />
+        <Grid />
         <SeperateBanner />
         <ImageParallax />
         <ColumnParallax />

@@ -33,7 +33,7 @@ const ParallaxSection = () => {
                     <div className='relative h-[400px] md:w-6/12 ml-6'>
                         <img className='absolute inset-0 h-full object-cover object-center' src={island} alt="" />
                         <motion.img style={{ y: md }} className='absolute left-[-20px] bottom-[-20px] md:w-[150px] w-auto h-[150px] md:h-[200px] object-cover object-center' src={mountain} alt="" />
-                        <motion.img style={{ y: lg }} className='absolute right-[-20px] bottom-[-100px] md:w-[300px] w-auto h-[150px] md:h-[250px] object-cover object-center' src={clouds} alt="" />
+                        <motion.img style={{ y: lg }} className='absolute right-[0px] md:right-[-20px] bottom-[-200px] md:bottom-[-100px] md:w-[300px] w-auto h-[150px] md:h-[250px] object-cover object-center' src={clouds} alt="" />
                     </div>
                 </div>
             </section >
