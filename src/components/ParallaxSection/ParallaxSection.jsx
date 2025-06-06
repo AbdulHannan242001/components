@@ -13,9 +13,9 @@ const ParallaxSection = () => {
         offset: ["start end", "end start"]
     })
 
-    const sm = useTransform(scrollYProgress, [0, 1], [0, -50])
+    const sm = useTransform(scrollYProgress, [0, 0.8], [0, -50])
     const md = useTransform(scrollYProgress, [0, 1], [0, -100])
-    const lg = useTransform(scrollYProgress, [0, 1], [0, -200])
+    const lg = useTransform(scrollYProgress, [0, 1], [0, -300])
     return (
         <main className='min-h-[100vh] py-[60px]'>
             <section ref={ref} className="min-h-screen flex items-center">

@@ -42,6 +42,8 @@ import SeperateBanner from "./components/Banner/SeperateBanner";
 import Card from "./components/ParallaxCard/Card";
 import Grid from "./components/ReflectiveGrid/Grid";
 import ScaleSection from "./components/ScaleSection/ScaleSection";
+import RevealGallery from "./components/Gallery/RevealGallery";
+import StickyGallery from "./components/Gallery/StickyGallery";
 
 function App() {
   const cardImg = [
@@ -83,9 +85,11 @@ function App() {
         />
         <Card />
         <InvertedText />
+        <StickyGallery />
         <Word />
         <TextMask />
         <ScaleSection />
+        <RevealGallery />
         <SkewText />
         {/* <HoverCards
           title={"Hover Cards"}
