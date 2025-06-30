@@ -44,6 +44,7 @@ import Grid from "./components/ReflectiveGrid/Grid";
 import ScaleSection from "./components/ScaleSection/ScaleSection";
 import RevealGallery from "./components/Gallery/RevealGallery";
 import StickyGallery from "./components/Gallery/StickyGallery";
+import ImageTrail from "./components/ImageTrail/ImageTrail";
 
 function App() {
   const cardImg = [
@@ -86,6 +87,7 @@ function App() {
         <Card />
         <InvertedText />
         <StickyGallery />
+        <ImageTrail />
         <Word />
         <TextMask />
         <ScaleSection />
