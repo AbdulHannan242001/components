@@ -45,6 +45,7 @@ import ScaleSection from "./components/ScaleSection/ScaleSection";
 import RevealGallery from "./components/Gallery/RevealGallery";
 import StickyGallery from "./components/Gallery/StickyGallery";
 import ImageTrail from "./components/ImageTrail/ImageTrail";
+import TextAnimation from "./components/TextAnimation/TextAnimation";
 
 function App() {
   const cardImg = [
@@ -89,6 +90,11 @@ function App() {
         <StickyGallery />
         <ImageTrail />
         <Word />
+        <TextAnimation
+          text={
+            "Short Text Animation"
+          }
+        />
         <TextMask />
         <ScaleSection />
         <RevealGallery />
