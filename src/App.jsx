@@ -46,6 +46,7 @@ import RevealGallery from "./components/Gallery/RevealGallery";
 import StickyGallery from "./components/Gallery/StickyGallery";
 import ImageTrail from "./components/ImageTrail/ImageTrail";
 import TextAnimation from "./components/TextAnimation/TextAnimation";
+import CapsuleButton from "./components/Button/CapsuleButton";
 
 function App() {
   const cardImg = [
@@ -73,6 +74,7 @@ function App() {
         <OverlapButton />
         <TextButton />
         <CircularButton text={"Circular Button"} />
+        <CapsuleButton />
         <SquishyCard />
         <TiltCard />
         <CustomBorder />

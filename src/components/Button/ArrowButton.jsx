@@ -29,7 +29,7 @@ const ArrowButton = ({ text }) => {
 
   return (
     <div className="h-screen flex items-center justify-center">
-      <div
+      <button
         ref={buttonRef}
         className="w-fit active:scale-95 cursor-pointer overflow-hidden bg-gradient-to-tr from-violet-500 to-indigo-500 px-3 py-2 flex flex-row gap-2 text-white text-lg font-medium items-center relative z-10"
         onMouseMove={handleMouseMove}
@@ -45,7 +45,7 @@ const ArrowButton = ({ text }) => {
           initial={{ x: 0, y: -16 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
         />
-      </div>
+      </button>
     </div>
   );
 };

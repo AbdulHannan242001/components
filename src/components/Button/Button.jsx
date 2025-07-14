@@ -5,7 +5,7 @@ import { TbArrowRight } from "react-icons/tb";
 const Button = () => {
   return (
     <section className="flex justify-center items-center min-h-screen">
-      <motion.div
+      <motion.button
        whileHover={{scale: 1.05}}
        whileTap={{scale: 1}}
        transition={{duration: 0.1}}
@@ -15,7 +15,7 @@ const Button = () => {
           {" "}
           <TbArrowRight />{" "}
         </span>{" "}
-      </motion.div>
+      </motion.button>
     </section>
   );
 };

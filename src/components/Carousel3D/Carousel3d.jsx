@@ -28,7 +28,7 @@ const Carousel3d = ({ images = [], radius = 500, duration = 20, width = 200, hei
             >
                 {images.map((img, index) => {
                     const angle = (360 / totalCards) * index;
-                    const blurHash = generateBlurHash(img); // Use your precomputed Blurhashes here.
+                    const blurHash = generateBlurHash(img); // Using precomputed Blurhashes here.
 
                     return (
                         <motion.div
