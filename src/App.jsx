@@ -47,6 +47,7 @@ import StickyGallery from "./components/Gallery/StickyGallery";
 import ImageTrail from "./components/ImageTrail/ImageTrail";
 import TextAnimation from "./components/TextAnimation/TextAnimation";
 import CapsuleButton from "./components/Button/CapsuleButton";
+import CircularBanner from "./components/Banner/CircularBanner";
 
 function App() {
   const cardImg = [
@@ -66,6 +67,7 @@ function App() {
     <Lenis root>
       <section className="flex flex-col scroll-smooth min-h-[100vh] min-w-screen bg-gradient-to-t from-neutral-800 to-neutral-900">
         <SlidingNav />
+        <CircularBanner />
         <Button />
         <ArrowButton text={"Lit Button"} />
         <BorderButton text={"Border Button"} color={"#ffffff"} />
@@ -92,11 +94,7 @@ function App() {
         <StickyGallery />
         <ImageTrail />
         <Word />
-        <TextAnimation
-          text={
-            "Short Text Animation"
-          }
-        />
+        <TextAnimation text={"Short Text Animation"} />
         <TextMask />
         <ScaleSection />
         <RevealGallery />

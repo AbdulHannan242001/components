@@ -1,5 +1,5 @@
 import React from "react";
-import { color, delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 
 const CapsuleButton = () => {
@@ -11,26 +11,26 @@ const CapsuleButton = () => {
     hover: {
       backgroundColor: "black",
       color: "white",
-      transition : {
-        duration : 0.4,
-        ease : "easeIn"
-      }
+      transition: {
+        duration: 0.4,
+        ease: "easeIn",
+      },
     },
   };
 
   const child = {
     initial: {
-      marginLeft: "4px",
+      marginLeft: "8px",
       rotate: "-45deg",
     },
     hover: {
-      marginLeft: "8px",
+      marginLeft: "12px",
       rotate: "0deg",
-      transition : {
-        delay : 0.1,
-        duration : 0.2,
-        ease : "easeIn"
-      }
+      transition: {
+        delay: 0.1,
+        duration: 0.2,
+        ease: "easeIn",
+      },
     },
   };
 
@@ -40,9 +40,9 @@ const CapsuleButton = () => {
         variants={parent}
         initial="initial"
         whileHover="hover"
-        className="px-6 py-3 flex text-nowrap justify-center items-center rounded-full font-semibold gap-1 transition-colors"
+        className="px-6 py-3 flex text-nowrap justify-center items-center rounded-full font-semibold transition-colors"
       >
-        Hello World !
+        Hello World
         <motion.span variants={child}>
           <FaArrowRight size={14} />
         </motion.span>
