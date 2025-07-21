@@ -15,8 +15,14 @@ const ArrowButton = ({ text }) => {
     const mouseX = event.clientX - rect.left;
     const mouseY = event.clientY - rect.top;
 
-    const newX = Math.max(0, Math.min(mouseX - divSize / 2, rect.width - divSize));
-    const newY = Math.max(0, Math.min(mouseY - divSize / 2, rect.height - divSize));
+    const newX = Math.max(
+      0,
+      Math.min(mouseX - divSize / 2, rect.width - divSize)
+    );
+    const newY = Math.max(
+      0,
+      Math.min(mouseY - divSize / 2, rect.height - divSize)
+    );
 
     x.set(newX);
     y.set(newY);
