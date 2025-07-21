@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa";
 import logo from "../../assets/Logo.svg";
+import { TbArrowRight } from "react-icons/tb";
 
 const CircularBanner = () => {
   const ref = useRef(null);
@@ -10,13 +10,17 @@ const CircularBanner = () => {
   const parent = {
     initial: {
       backgroundColor: "white",
+      gap: "0px",
       color: "black",
+      boxShadow: "0px 0px 0px 0px rgba(0, 0, 0, 0)",
     },
     hover: {
+      gap: "4px",
       backgroundColor: "black",
       color: "white",
+      boxShadow: "0px 4px 8px 0px rgba(255, 255, 255, 0.4)",
       transition: {
-        duration: 0.4,
+        duration: 0.2,
         ease: "easeIn",
       },
     },
@@ -24,20 +28,17 @@ const CircularBanner = () => {
 
   const child = {
     initial: {
-      marginLeft: "8px",
       rotate: "-45deg",
     },
     hover: {
-      marginLeft: "12px",
       rotate: "0deg",
       transition: {
-        delay: 0.1,
+        delay: 0.15,
         duration: 0.2,
-        ease: "easeIn",
+        ease: "easeOut",
       },
     },
   };
-
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   return (
@@ -53,9 +54,8 @@ const CircularBanner = () => {
             animate={{
               y: isInView ? 0 : "-200px",
               transition: {
-                duration: 0.5,
-                ease: [0.4, 0.5, 0, 1.5],
-                delay: 0.5,
+                ease: [0.4, 0, -0.5, 1],
+                duration: 1,
               },
             }}
             onMouseLeave={() => setIsNavExpanded(false)}
@@ -185,13 +185,13 @@ const CircularBanner = () => {
               </h1>
             </AppearAnimate>
             <AppearAnimate inView={isInView} delay={0.9}>
-              <p className="py-[20px] max-w-lg">
+              <p className="pt-[20px] max-w-lg">
                 And then here goes your description about what you do something
                 that your audience might relate to
               </p>
             </AppearAnimate>
             <AppearAnimate inView={isInView} delay={1}>
-              <div>
+              <div className="px-1 py-[20px]">
                 <motion.button
                   variants={parent}
                   initial="initial"
@@ -200,7 +200,7 @@ const CircularBanner = () => {
                 >
                   CTA HERE
                   <motion.span variants={child}>
-                    <FaArrowRight size={14} />
+                    <TbArrowRight size={16} />
                   </motion.span>
                 </motion.button>
               </div>

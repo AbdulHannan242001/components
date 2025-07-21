@@ -40,7 +40,7 @@ const ArrowButton = ({ text }) => {
           <TbArrowRight size={22} />
         </span>
         <motion.div
-          className="absolute size-[34px] bg-white rounded-full blur-xl"
+          className="absolute size-[34px] bg-white rounded-full blur-lg"
           style={{ x, y }}
           initial={{ x: 0, y: -16 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
