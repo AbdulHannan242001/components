@@ -48,6 +48,7 @@ import ImageTrail from "./components/ImageTrail/ImageTrail";
 import TextAnimation from "./components/TextAnimation/TextAnimation";
 import CapsuleButton from "./components/Button/CapsuleButton";
 import CircularBanner from "./components/Banner/CircularBanner";
+import ParticleSection from "./components/ParticleSection/ParticleSection";
 
 function App() {
   const cardImg = [
@@ -94,6 +95,7 @@ function App() {
         <StickyGallery />
         <ImageTrail />
         <Word />
+        <ParticleSection />
         <TextAnimation text={"Short Text Animation"} />
         <TextMask />
         <ScaleSection />
