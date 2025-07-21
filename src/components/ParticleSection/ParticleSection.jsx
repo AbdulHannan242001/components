@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 const INITIAL_VELOCITY_SCALE = 0.2; // Scale factor for initial random velocity (percentage per frame)
-const MAX_VELOCITY = 0.5; // Maximum velocity (percentage per frame) to prevent extreme speeds
+const MAX_VELOCITY = 0.4; // Maximum velocity (percentage per frame) to prevent extreme speeds
 const CONNECTION_RADIUS = 200; // Max distance in pixels for lines to be drawn
 const LINE_COLOR = "100,100,100";
 const DENSITY_FACTOR = 25000; // Pixels per particle (tuned for ~50 particles on 1440x900)
