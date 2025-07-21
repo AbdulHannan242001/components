@@ -62,7 +62,7 @@ const ParticleSection = () => {
           vx: (Math.random() - 0.5) * INITIAL_VELOCITY_SCALE, // Random value between -0.1 and 0.1
           vy: (Math.random() - 0.5) * INITIAL_VELOCITY_SCALE, // Random value between -0.1 and 0.1
           radius: 5,
-          color: "rgba(150,150,150)",
+          color: "rgba(70,70,70)",
         })
       );
       setParticles(newParticles);
@@ -269,7 +269,7 @@ const ParticleSection = () => {
     <main className="min-h-screen flex items-center justify-center p-4 font-inter bg-neutral-900">
       <div
         ref={containerRef}
-        className="relative w-full h-[calc(100dvh-32px)] bg-neutral-200 rounded-lg shadow-lg overflow-hidden border border-neutral-700"
+        className="relative w-full h-[calc(100dvh-60px)] bg-neutral-200 rounded-lg shadow-lg overflow-hidden border border-neutral-700"
         onMouseMove={handleMouseMove}
       >
         <canvas
@@ -292,7 +292,7 @@ const ParticleSection = () => {
           ></div>
         ))}
 
-        <div className="p-[30px] absolute z-50 left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] w-10/12 md:w-6/12 h-auto rounded-xl bg-black/30 backdrop-blur-sm text-white">
+        <div className="p-[30px] absolute z-50 left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] max-w-xl h-auto rounded-xl bg-black/50 backdrop-blur-sm text-white">
           <h2 className="text-5xl font-bold uppercase tracking-wide pb-[30px] ">
             Particle Section
           </h2>
