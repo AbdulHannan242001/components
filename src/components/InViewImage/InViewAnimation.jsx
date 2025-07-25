@@ -18,10 +18,10 @@ const InViewAnimation = () => {
     };
 
     return (
-        <main className="min-h-[100vh] bg-slate-50 flex items-center">
-            <div ref={containerRef} className="flex flex-col md:flex-row w-full min-h-screen">
+        <main className="h-fit md:h-[100dvh] bg-slate-50 flex items-center">
+            <div ref={containerRef} className="flex flex-col md:flex-row w-full md:min-h-screen">
                 <div className="p-[10px] md:p-[30px] h-fit md:h-screen w-full md:w-6/12 flex items-center justify-center">
-                    <div className='w-full md:w-10/12 h-[400px] relative'>
+                    <div className='w-full md:w-10/12 h-auto relative'>
                         <motion.img
                             src={clouds}
                             alt="clouds"
@@ -31,14 +31,14 @@ const InViewAnimation = () => {
                             transition={{ duration: 0.5, delay: 1.5 }}
                         />
                         <motion.div
-                            className='w-full h-[400px] bg-neutral-50 absolute top-0 z-50'
-                            initial={{ height: '400px' }}
+                            className='w-full h-full bg-neutral-50 absolute top-0 z-50'
+                            initial={{ height: 'full' }}
                             animate={{ height: isInView ? '0px' : '400px' }}
                             transition={{ duration: 0.5, delay: 0.5 }}
                         />
                     </div>
                 </div>
-                <div className="bg-slate-200 w-full md:w-6/12 h-full min-h-[350px] md:min-h-screen flex flex-col justify-center items-start p-[10px] md:p-[30px] ">
+                <div className="w-full md:w-6/12 h-full mt-auto min-h-[350px] md:min-h-screen flex flex-col justify-center items-start p-[10px] md:p-[30px] ">
                     <motion.span
                         className="text-red-500 text-sm md:text-lg font-semibold font-mono"
                         variants={textVariant}

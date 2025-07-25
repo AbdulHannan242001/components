@@ -79,7 +79,7 @@ const RevealFooter = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: 50 }}
                 transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
-                className="text-2xl md:text-7xl font-bold"
+                className="text-5xl md:text-7xl font-bold"
               >
                 ABDUL HANNAN SIDDIQUI
               </motion.p>

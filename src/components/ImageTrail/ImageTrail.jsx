@@ -110,7 +110,6 @@ const ImageTrail = () => {
           <img
             src={image.src}
             alt={image.alt}
-            fill
             sizes="(max-width: 640px) 80px, (max-width: 768px) 120px, 160px"
             style={{ objectFit: "cover", borderRadius: "10px", border: "2px solid white" }}
             onError={() => {

@@ -8,10 +8,10 @@ const TextAnimation = ({ text }) => {
   return (
     <section
       ref={containerRef}
-      className="flex justify-center items-center min-h-screen text-5xl font-serif font-bold uppercase"
+      className="flex justify-center items-center min-h-screen text-xl md:text-5xl font-serif font-bold uppercase"
     >
       {Array.from(text).map((letter, index) => (
-        <span className="overflow-hidden px-0.5">
+        <span key={index} className="overflow-hidden md:px-0.5">
           <Alphabet
             key={`top-${index}`}
             letter={letter}

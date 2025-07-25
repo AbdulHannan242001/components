@@ -23,6 +23,9 @@ const BallSwitchSlider = () => {
                             duration: 0.5,
                         },
                     }}
+                    style={{
+                        backgroundSize: '0% 0%',
+                    }}
                 />
             </div>
         </section>

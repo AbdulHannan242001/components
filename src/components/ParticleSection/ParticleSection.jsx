@@ -85,6 +85,7 @@ const ParticleSection = () => {
    * useEffect hook for the animation loop and collision detection.
    * This also handles drawing the connecting lines on the canvas.
    * Runs only once when the component mounts.
+   * Basically, this is the main game loop. Something pygame would bring in.
    */
   useEffect(() => {
     const container = containerRef.current;
@@ -266,7 +267,7 @@ const ParticleSection = () => {
   }, [particles, cursorPosition]);
 
   return (
-    <main className="min-h-screen flex items-center justify-center p-4 font-inter bg-neutral-900">
+    <main className="min-h-screen flex items-center justify-center p-2 md:p-4 font-inter bg-neutral-900">
       <div
         ref={containerRef}
         className="relative w-full h-[calc(100dvh-60px)] bg-neutral-200 rounded-lg shadow-lg overflow-hidden border border-neutral-700"
@@ -292,8 +293,8 @@ const ParticleSection = () => {
           ></div>
         ))}
 
-        <div className="p-[30px] absolute z-50 left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] max-w-xl h-auto rounded-xl bg-black/50 backdrop-blur-sm text-white">
-          <h2 className="text-5xl font-bold uppercase tracking-wide pb-[30px] ">
+        <div className="p-[10px] md:p-[30px] absolute z-50 left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] max-w-xl h-auto rounded-xl bg-black/50 backdrop-blur-sm text-white">
+          <h2 className="text-5xl font-bold uppercase tracking-wide pb-[15px] md:pb-[30px] ">
             Particle Section
           </h2>
           <p className="tracking-wide pb-[10px]">

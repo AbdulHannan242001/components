@@ -11,7 +11,7 @@ const AnimatedCard = ({
   const controls = useAnimation();
 
   return (
-    <main className="min-h-screen flex items-center justify-center">
+    <main className="min-h-screen flex items-center justify-center p-2">
       <div
         className="group relative w-80 h-96 overflow-hidden rounded-2xl shadow-md shadow-zinc-500/10 hover:shadow-zinc-500/30 transition-all duration-300"
         onMouseEnter={() => {

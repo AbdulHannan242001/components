@@ -61,18 +61,18 @@ const BentoGrid = () => {
                 <p className="font-semibold text-3xl md:text-5xl tracking-tighter leading-none">
                   TOEI ANIMATION
                 </p>
-                <div className="flex flex-col md:flex-row gap-2 w-full">
+                <div className="flex flex-col md:flex-row gap-2 w-full ml-auto justify-end">
                   <div className="h-[150px] w-full md:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
-                    <p className="text-xl font-semibold">Protagonist</p>
-                    <p>Son Goku</p>
+                    <p className="text-3xl md:text-xl font-semibold">Protagonist</p>
+                    <p className="md:text-base text-2xl">Son Goku</p>
                   </div>
                   <div className="h-[150px] w-full md:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
-                    <p className="text-xl font-semibold">Episodes</p>
-                    <p>291</p>
+                    <p className="text-3xl md:text-xl font-semibold">Episodes</p>
+                    <p className="md:text-base text-2xl">291</p>
                   </div>
                   <div className="h-[150px] w-full md:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
-                    <p className="text-xl font-semibold">Seasons</p>
-                    <p>9</p>
+                    <p className="text-3xl md:text-xl font-semibold">Seasons</p>
+                    <p className="md:text-base text-2xl">9</p>
                   </div>
                 </div>
               </div>

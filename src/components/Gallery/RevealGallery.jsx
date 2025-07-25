@@ -36,13 +36,13 @@ const RevealGallery = () => {
         <div className="flex items-center justify-center relative w-full h-full">
           <motion.div
             style={{ x: card1.x, rotate: card1.rotate }}
-            className="absolute bg-zinc-800 flex items-center justify-center h-[450px] w-[300px] rounded-xl border-2 border-white/20 overflow-hidden z-10"
+            className="absolute bg-zinc-800 flex items-center justify-center h-[150px] w-4/12 md:h-[450px] md:w-[300px] rounded-xl border-2 border-white/20 overflow-hidden z-10"
           >
             <img src={picture2} alt="" className="h-full w-full object-cover" />
           </motion.div>
           <motion.div
             style={{ x: card2.x, rotate: card2.rotate, scale: card2.scale }}
-            className="absolute bg-zinc-800 flex items-center justify-center h-[450px] w-[300px] rounded-xl border-2 border-white/20 overflow-hidden z-20"
+            className="absolute bg-zinc-800 flex items-center justify-center h-[150px] w-4/12 md:h-[450px] md:w-[300px] rounded-xl border-2 border-white/20 overflow-hidden z-20"
           >
             <img
               src={earphones}
@@ -52,7 +52,7 @@ const RevealGallery = () => {
           </motion.div>
           <motion.div
             style={{ x: card3.x, rotate: card3.rotate }}
-            className="absolute bg-zinc-800 flex items-center justify-center h-[450px] w-[300px] rounded-xl border-2 border-white/20 overflow-hidden z-10"
+            className="absolute bg-zinc-800 flex items-center justify-center h-[150px] w-4/12 md:h-[450px] md:w-[300px] rounded-xl border-2 border-white/20 overflow-hidden z-10"
           >
             <img src={picture6} alt="" className="h-full w-full object-cover" />
           </motion.div>

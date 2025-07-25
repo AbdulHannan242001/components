@@ -28,7 +28,7 @@ const SkewText = () => {
                         skewX,
                         x,
                     }}
-                    className="origin-bottom-left whitespace-nowrap text-5xl md:text-7xl font-bold text-neutral-900 uppercase leading-[0.85] md:leading-[0.85]">
+                    className="origin-bottom-left whitespace-nowrap text-4xl md:text-7xl font-bold text-neutral-900 uppercase leading-[0.85] md:leading-[0.85]">
                     This text leans left when going up, and leans right when going down. How cool is that :D
                 </motion.p>
             </div >

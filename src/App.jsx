@@ -49,6 +49,7 @@ import TextAnimation from "./components/TextAnimation/TextAnimation";
 import CapsuleButton from "./components/Button/CapsuleButton";
 import CircularBanner from "./components/Banner/CircularBanner";
 import ParticleSection from "./components/ParticleSection/ParticleSection";
+import SlideTabsExample from "./components/SlideTabs/SlideTabs";
 
 function App() {
   const cardImg = [
@@ -78,6 +79,7 @@ function App() {
         <TextButton />
         <CircularButton text={"Circular Button"} />
         <CapsuleButton />
+        <SlideTabsExample />
         <SquishyCard />
         <TiltCard />
         <CustomBorder />

@@ -26,7 +26,7 @@ const StickyGallery = () => {
   return (
     <section
       ref={containerRef}
-      className="h-[300dvh] flex flex-col items-center gap-[20dvh] justify-center relative px-8"
+      className="h-[150dvh] md:h-[300dvh] flex flex-col items-center gap-[20dvh] justify-center relative p-2 md:px-8"
     >
       <motion.div
         style={{ scale: card1.scale }}
