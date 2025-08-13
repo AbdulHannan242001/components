@@ -12,9 +12,9 @@ const Word = () => {
     const words = paragraph.split(' ');
 
     return (
-        <section ref={ref} className='relative min-h-[200vh] py-[60px]'>
-            <motion.div className='sticky top-10 flex justify-center'>
-                <p className='text-white flex flex-wrap mx-auto px-4 md:px-12 md:text-4xl text-3xl uppercase'>
+        <section ref={ref} className='relative min-h-[200vh] py-[30px] sm:py-[45px] lg:py-[60px]'>
+            <motion.div className='sticky top-4 sm:top-6 lg:top-10 flex justify-center'>
+                <p className='text-white flex flex-wrap mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase leading-relaxed'>
                     {words.map((word, index) => {
                         const start = index / words.length;
                         const end = start + (1 / words.length);
@@ -31,7 +31,7 @@ export default Word;
 const Wo = ({ children, range, progress }) => {
     const opacity = useTransform(progress, range, [0, 1]);
     return (
-        <motion.span style={{ opacity }} className='mr-4 leading-tight'>
+        <motion.span style={{ opacity }} className='mr-2 sm:mr-3 lg:mr-4 leading-tight'>
             {children}
         </motion.span>
     );

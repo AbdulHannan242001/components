@@ -29,13 +29,13 @@ const InvertedText = () => {
     };
 
     return (
-        <section className='min-h-[100vh] py-[60px] px-2 cursor-none min-w-full flex items-center justify-center relative overflow-hidden'>
+        <section className='min-h-[100vh] py-[30px] sm:py-[45px] lg:py-[60px] px-4 sm:px-6 lg:px-8 cursor-none min-w-full flex items-center justify-center relative overflow-hidden'>
             <motion.div
                 style={divStyle}
-                className='h-32 w-32 md:h-52 md:w-52 bg-white absolute '
+                className='h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-52 lg:w-52 bg-white absolute'
             />
-            <div className='relative text-4xl md:text-8xl text-white max-h-[100vh] max-w-[100vw]'>
-                <p className='relative z-10 mix-blend-exclusion font-mono font-thin'>
+            <div className='relative text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-8xl text-white max-h-[100vh] max-w-[100vw] px-4'>
+                <p className='relative z-10 mix-blend-exclusion font-mono font-thin leading-tight text-center'>
                     Some Text Goes Here
                 </p>
             </div>

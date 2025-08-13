@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import "./App.css";
-import { Lenis, useLenis } from "@studio-freight/react-lenis";
+import { Lenis } from "@studio-freight/react-lenis";
+import { motion } from "framer-motion";
+import logo from "./assets/Logo.svg";
+import image from "./assets/camera.jpg";
+
+// Import Layout and HeroSection components
+import Layout from "./components/Layout/Layout";
+import HeroSection from "./components/HeroSection/HeroSection";
+import ComponentWrapper from "./components/ComponentWrapper/ComponentWrapper";
+import { componentCodes, getDefaultCode } from "./data/componentCodes";
+
+// Import all components
 import InvertedText from "./components/InvertedText/InvertedText";
 import SquishyCard from "./components/SquishyCard/SquishyCard";
 import TiltCard from "./components/TiltCard/TiltCard";
@@ -12,12 +23,8 @@ import SkewText from "./components/SkewText/SkewText";
 import Button from "./components/Button/Button";
 import ShinyButton from "./components/ShinyButton/ShinyButton";
 import ContactForm from "./components/ContactForm/ContactForm";
-import HoverCards from "./components/HoverCards/HoverCards";
 import SplitVignetteEffect from "./components/SplitVignetteEffect/SplitVignetteEffect";
 import FloatingPhone from "./components/FloatingPhone/FloatingPhone";
-
-import image from "./assets/camera.jpg";
-import svg from "./assets/template.svg";
 import CallToAction from "./components/CTA/callToAction";
 import ParallaxSection from "./components/ParallaxSection/ParallaxSection";
 import BallSwitchSlider from "./components/BallSwitch/BallSwitchSlider";
@@ -52,6 +59,9 @@ import ParticleSection from "./components/ParticleSection/ParticleSection";
 import SlideTabsExample from "./components/SlideTabs/SlideTabs";
 
 function App() {
+  const [isScrolling, setIsScrolling] = useState(false);
+  const scrollTimeoutRef = useRef(null);
+
   const cardImg = [
     "https://picsum.photos/2100/2100",
     "https://picsum.photos/2200/2200",
@@ -65,26 +75,8 @@ function App() {
     "https://picsum.photos/1400/1400",
   ];
 
-  return (
-    <Lenis root>
-      <section className="flex flex-col scroll-smooth min-h-[100vh] min-w-screen bg-gradient-to-t from-neutral-800 to-neutral-900">
-        <SlidingNav />
-        <CircularBanner />
-        <Button />
-        <ArrowButton text={"Lit Button"} />
-        <BorderButton text={"Border Button"} color={"#ffffff"} />
-        <BallSwitchSlider />
-        <ShinyButton />
-        <OverlapButton />
-        <TextButton />
-        <CircularButton text={"Circular Button"} />
-        <CapsuleButton />
-        <SlideTabsExample />
-        <SquishyCard />
-        <TiltCard />
-        <CustomBorder />
-        <ColorCards />
-        <InvertedCard />
+  // Create wrapper components for components that need props
+  const ShutterCardWrapper = () => (
         <ShutterCard
           heading="Some Heading"
           description="This can be a description about the service or product or pretty much anything you can use this card for. Its looks real good in terms of these micro interactions."
@@ -92,48 +84,163 @@ function App() {
           bottomText="A short intimate description"
           imageSrc={image}
         />
-        <Card />
-        <InvertedText />
-        <StickyGallery />
-        <ImageTrail />
-        <Word />
-        <ParticleSection />
-        <TextAnimation text={"Short Text Animation"} />
-        <TextMask />
-        <ScaleSection />
-        <RevealGallery />
-        <SkewText />
-        {/* <HoverCards
-          title={"Hover Cards"}
-          description={
-            "This is some text or maybe some description. Gotta keep writing in real world cases, descriptions are pretty long. Almost there I think this will be enough."
-          }
-          svg={svg}
-          image={image}
-        /> */}
-        <Carousel3d
-          images={cardImg}
-          // radius={400} already have a default value but can be changed
-          // duration={15} already have a default value but can be changed
-          // width={250} already have a default value but can be changed
-          // height={300} already have a default value but can be changed
-        />
-        <ContactForm />
-        <FloatingPhone />
-        <SplitVignetteEffect />
-        <CallToAction />
-        <ParallaxSection />
-        <Grid />
-        <SeperateBanner />
-        <ImageParallax />
-        <ColumnParallax />
-        <InViewAnimation />
-        <SwiperSlider />
-        <TwoAxisSlider />
-        <InfiniteMarquee />
-        <BentoGrid />
-        <RevealFooter />
+  );
+
+  const ArrowButtonWrapper = () => <ArrowButton text={"Lit Button"} />;
+  const BorderButtonWrapper = () => <BorderButton text={"Border Button"} color={"#ffffff"} />;
+  const CircularButtonWrapper = () => <CircularButton text={"Circular Button"} />;
+  const TextAnimationWrapper = () => <TextAnimation text={"Short Text Animation"} />;
+  const Carousel3dWrapper = () => <Carousel3d images={cardImg} />;
+
+  const componentCategories = {
+    "Buttons": {
+      "Basic Button": Button,
+      "Arrow Button": ArrowButtonWrapper,
+      "Border Button": BorderButtonWrapper,
+      "Overlap Button": OverlapButton,
+      "Text Button": TextButton,
+      "Circular Button": CircularButtonWrapper,
+      "Capsule Button": CapsuleButton,
+      "Shiny Button": ShinyButton,
+    },
+    "Cards": {
+      "Squishy Card": SquishyCard,
+      "Tilt Card": TiltCard,
+      "Inverted Card": InvertedCard,
+      "Shutter Card": ShutterCardWrapper,
+      "Parallax Card": Card,
+      "Color Cards": ColorCards,
+    },
+    "Text Effects": {
+      "Inverted Text": InvertedText,
+      "Word Animation": Word,
+      "Skew Text": SkewText,
+      "Text Animation": TextAnimationWrapper,
+      "Text Mask": TextMask,
+    },
+    "Navigation": {
+      "Sliding Nav": SlidingNav,
+      "Slide Tabs": SlideTabsExample,
+    },
+    "Galleries & Sliders": {
+      "3D Carousel": Carousel3dWrapper,
+      "Swiper Slider": SwiperSlider,
+      "Two Axis Slider": TwoAxisSlider,
+      "Reveal Gallery": RevealGallery,
+      "Sticky Gallery": StickyGallery,
+      "Ball Switch Slider": BallSwitchSlider,
+    },
+    "Layout & Sections": {
+      "Bento Grid": BentoGrid,
+      "Reflective Grid": Grid,
+      "Scale Section": ScaleSection,
+      "Parallax Section": ParallaxSection,
+      "Column Parallax": ColumnParallax,
+      "Image Parallax": ImageParallax,
+      "Particle Section": ParticleSection,
+    },
+    "Interactive Elements": {
+      "Contact Form": ContactForm,
+      "Custom Border": CustomBorder,
+      "Image Trail": ImageTrail,
+      "Infinite Marquee": InfiniteMarquee,
+      "In View Animation": InViewAnimation,
+    },
+    "Banners & CTAs": {
+      "Circular Banner": CircularBanner,
+      "Separate Banner": SeperateBanner,
+      "Call To Action": CallToAction,
+      "Reveal Footer": RevealFooter,
+    },
+    "Special Effects": {
+      "Split Vignette Effect": SplitVignetteEffect,
+      "Floating Phone": FloatingPhone,
+    }
+  };
+
+  const scrollToComponent = (componentName) => {
+    const element = document.getElementById(componentName);
+    if (element) {
+      setIsScrolling(true);
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+      
+      // Clear existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      
+      // Set scrolling to false after animation completes
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsScrolling(false);
+      }, 1000);
+    }
+  };
+
+  return (
+    <Lenis root>
+      <Layout componentCategories={componentCategories} scrollToComponent={scrollToComponent}>
+        {/* Hero Section */}
+        <HeroSection scrollToComponent={scrollToComponent} />
+
+        {/* Components Section */}
+        <section className="relative">
+          {Object.entries(componentCategories).map(([category, components]) => (
+            <div key={category}>
+              {/* Category Header */}
+              <div id={category} className="pt-20 pb-8 px-4 sm:px-6 lg:px-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="text-center"
+                >
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                    {category}
+                  </h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+                </motion.div>
+              </div>
+
+              {/* Components */}
+              {Object.entries(components).map(([name, Component], index) => {
+                const codes = componentCodes[name] || getDefaultCode(name);
+                return (
+                  <ComponentWrapper
+                    key={name}
+                    componentName={name}
+                    Component={Component}
+                    index={index}
+                    totalComponents={Object.keys(components).length}
+                    reactCode={codes.react}
+                    nextjsCode={codes.nextjs}
+                  />
+                );
+              })}
+            </div>
+          ))}
       </section>
+
+        {/* Footer */}
+        <footer className="bg-neutral-900 border-t border-neutral-800 py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto text-center">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Interactive Component Library
+            </h3>
+            <p className="text-neutral-400 mb-6">
+              Built with React, Framer Motion, and Tailwind CSS
+            </p>
+            <div className="flex justify-center gap-4">
+              <span className="text-sm text-neutral-500">
+                Scroll-driven animations • Interactive effects • Responsive design
+              </span>
+            </div>
+          </div>
+        </footer>
+      </Layout>
     </Lenis>
   );
 }

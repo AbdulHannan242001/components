@@ -21,14 +21,14 @@ const SkewText = () => {
     const x = useSpring(xRaw,)
 
     return (
-        <section ref={targetRef} className=' w-full min-h-[400vh] py-[60px] relative bg-neutral-50'>
-            <div className='sticky top-0 flex h-[100vh] items-center overflow-hidden' >
+        <section ref={targetRef} className='w-full min-h-[400vh] py-[30px] sm:py-[45px] lg:py-[60px] relative bg-neutral-50'>
+            <div className='sticky top-0 flex h-[100vh] items-center overflow-hidden px-4 sm:px-6 lg:px-8'>
                 <motion.p
                     style={{
                         skewX,
                         x,
                     }}
-                    className="origin-bottom-left whitespace-nowrap text-4xl md:text-7xl font-bold text-neutral-900 uppercase leading-[0.85] md:leading-[0.85]">
+                    className="origin-bottom-left whitespace-nowrap text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-neutral-900 uppercase leading-[0.85] md:leading-[0.85]">
                     This text leans left when going up, and leans right when going down. How cool is that :D
                 </motion.p>
             </div >

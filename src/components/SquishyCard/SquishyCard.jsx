@@ -90,16 +90,16 @@ const Background = () => {
 
 const SquishyCard = () => {
     return (
-        <section className='min-h-[100vh] py-[60px] flex items-center justify-center px-2'>
+        <section className='min-h-[100vh] py-[30px] sm:py-[45px] lg:py-[60px] flex items-center justify-center px-4 sm:px-6 lg:px-8'>
             <motion.div
                 whileHover="hover"
                 variants={{
                     hover: { scale: 1.1 },
                 }}
                 transition={{ duration: 1, ease: "backInOut" }}
-                className='relative h-96 w-fit max-w-80 shrink-0 overflow-hidden rounded-lg bg-indigo-600 p-8'>
+                className='relative h-64 sm:h-80 lg:h-96 w-full max-w-xs sm:max-w-sm lg:max-w-80 shrink-0 overflow-hidden rounded-lg bg-indigo-600 p-4 sm:p-6 lg:p-8'>
                 <div className='relative z-10 text-white '>
-                    <span className='mb-3 block w-fit rounded-full bg-white/30 px-3 py-0.5 text-sm text-white font-light'>Pro</span>
+                    <span className='mb-2 sm:mb-3 block w-fit rounded-full bg-white/30 px-2 sm:px-3 py-0.5 text-xs sm:text-sm text-white font-light'>Pro</span>
                     <motion.span
                         initial={{ scale: 0.85 }}
                         variants={{
@@ -108,13 +108,13 @@ const SquishyCard = () => {
                             },
                         }}
                         transition={{ duration: 1, ease: "backInOut" }}
-                        className='my-2 block origin-top-left py-0.5 font-semibold text-6xl text-white'
+                        className='my-1 sm:my-2 block origin-top-left py-0.5 font-semibold text-3xl sm:text-4xl lg:text-6xl text-white'
                     >
                         $99 / Month
                     </motion.span>
-                    <p className='my-2 block py-0.5 text-base text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nihil</p>
+                    <p className='my-1 sm:my-2 block py-0.5 text-xs sm:text-sm lg:text-base text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nihil</p>
                 </div>
-                <button className='text-xl absolute bottom-4 right-4 left-4 z-20 rounded border-2 border-white bg-white py-2 text-center text-black uppercase backdrop-blur transition-colors hover:bg-white/30 hover:text-white font-bold font-mono' >GET IT NOW</button>
+                <button className='text-sm sm:text-base lg:text-xl absolute bottom-3 sm:bottom-4 right-3 sm:right-4 left-3 sm:left-4 z-20 rounded border-2 border-white bg-white py-1.5 sm:py-2 text-center text-black uppercase backdrop-blur transition-colors hover:bg-white/30 hover:text-white font-bold font-mono' >GET IT NOW</button>
                 <Background />
             </motion.div>
         </section>

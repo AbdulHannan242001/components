@@ -30,7 +30,7 @@ const RevealGallery = () => {
   return (
     <section
       ref={containerRef}
-      className="h-[200dvh] flex items-start justify-center relative"
+      className="h-[200dvh] flex items-start justify-center relative overflow-x-clip"
     >
       <main className="h-screen sticky top-0 w-full">
         <div className="flex items-center justify-center relative w-full h-full">

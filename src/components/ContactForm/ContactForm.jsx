@@ -21,18 +21,18 @@ const ContactForm = () => {
     };
 
     return (
-        <section className="flex items-center justify-center py-[60px] px-2 min-h-screen w-full">
-            <div className="relative w-full max-w-lg p-8 space-y-8 bg-neutral-950 z-[50] rounded-xl shadow-2xl overflow-clip bg-blend-saturation">
-                <div className='absolute -top-16 left-1/2 -translate-x-1/2 size-32 z-[-1] rounded-full bg-gray-500/60 blur-3xl'></div>
-                <h2 className="text-4xl font-bold text-center text-white tracking-wide">Get in Touch</h2>
-                <p className="text-center text-white">We'd love to hear from you! Fill out the form below to reach us.</p>
-                <form className="space-y-6 text-white">
-                    <div className='flex flex-row justify-between gap-x-4'>
-                        <div className="relative flex flex-col group w-6/12">
+        <section className="flex items-center justify-center py-[30px] sm:py-[45px] lg:py-[60px] px-4 sm:px-6 lg:px-8 min-h-screen w-full">
+            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8 bg-neutral-950 z-[50] rounded-xl shadow-2xl overflow-clip bg-blend-saturation">
+                <div className='absolute -top-12 sm:-top-16 left-1/2 -translate-x-1/2 size-24 sm:size-28 lg:size-32 z-[-1] rounded-full bg-gray-500/60 blur-3xl'></div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-white tracking-wide">Get in Touch</h2>
+                <p className="text-center text-white text-xs sm:text-sm lg:text-base">We'd love to hear from you! Fill out the form below to reach us.</p>
+                <form className="space-y-4 sm:space-y-6 text-white">
+                    <div className='flex flex-col sm:flex-row justify-between gap-y-4 sm:gap-x-4'>
+                        <div className="relative flex flex-col group w-full sm:w-6/12">
                             <motion.label
                                 initial={{ y: 0, opacity: 1, scale: 1, width: "95%" }}
                                 animate={labelAnimate("fullname")}
-                                className="absolute left-2 top-3 text-white text-sm pointer-events-none bg-neutral-950 px-2"
+                                className="absolute left-2 top-3 text-white text-xs sm:text-sm pointer-events-none bg-neutral-950 px-2"
                                 htmlFor="fullname"
                             >
                                 Full Name *
@@ -42,14 +42,14 @@ const ContactForm = () => {
                                 id="fullname"
                                 onFocus={() => handleFocus("fullname")}
                                 onBlur={() => handleBlur("fullname")}
-                                className="bg-transparent text-white text-sm rounded-lg border border-gray-300 w-full p-2.5 focus:outline-none focus:ring-2 focus:ring-white"
+                                className="bg-transparent text-white text-xs sm:text-sm rounded-lg border border-gray-300 w-full p-2 sm:p-2.5 focus:outline-none focus:ring-2 focus:ring-white"
                             />
                         </div>
-                        <div className="relative flex flex-col group w-6/12">
+                        <div className="relative flex flex-col group w-full sm:w-6/12">
                             <motion.label
                                 initial={{ y: 0, opacity: 1, scale: 1, width: "95%" }}
                                 animate={labelAnimate("email")}
-                                className="absolute left-2 top-3 text-white text-sm pointer-events-none bg-neutral-950 px-2"
+                                className="absolute left-2 top-3 text-white text-xs sm:text-sm pointer-events-none bg-neutral-950 px-2"
                                 htmlFor="email"
                             >
                                 Email *
@@ -59,7 +59,7 @@ const ContactForm = () => {
                                 id="email"
                                 onFocus={() => handleFocus("email")}
                                 onBlur={() => handleBlur("email")}
-                                className="bg-transparent text-white text-sm rounded-lg border border-gray-300 w-full p-2.5 focus:outline-none focus:ring-2 focus:ring-white"
+                                className="bg-transparent text-white text-xs sm:text-sm rounded-lg border border-gray-300 w-full p-2 sm:p-2.5 focus:outline-none focus:ring-2 focus:ring-white"
                             />
                         </div>
                     </div>
@@ -67,7 +67,7 @@ const ContactForm = () => {
                         <motion.label
                             initial={{ y: 0, opacity: 1, scale: 1, width: "95%" }}
                             animate={labelAnimate("Number")}
-                            className="absolute left-2 top-3 text-white text-sm pointer-events-none bg-neutral-950 px-2"
+                            className="absolute left-2 top-3 text-white text-xs sm:text-sm pointer-events-none bg-neutral-950 px-2"
                             htmlFor="Number"
                         >
                             Number
@@ -77,14 +77,14 @@ const ContactForm = () => {
                             type="tel"
                             onFocus={() => handleFocus("Number")}
                             onBlur={() => handleBlur("Number")}
-                            className="bg-transparent text-white text-sm rounded-lg border border-gray-300 w-full p-2.5 focus:outline-none focus:ring-2 focus:ring-white resize-none"
+                            className="bg-transparent text-white text-xs sm:text-sm rounded-lg border border-gray-300 w-full p-2 sm:p-2.5 focus:outline-none focus:ring-2 focus:ring-white resize-none"
                         />
                     </div>
                     <div className="relative flex flex-col group w-full">
                         <motion.label
                             initial={{ y: 0, opacity: 1, scale: 1, width: "95%" }}
                             animate={labelAnimate("Description")}
-                            className="absolute left-2 top-3 text-white text-sm pointer-events-none bg-neutral-950 px-2"
+                            className="absolute left-2 top-3 text-white text-xs sm:text-sm pointer-events-none bg-neutral-950 px-2"
                             htmlFor="Description"
                         >
                             Description *
@@ -93,12 +93,12 @@ const ContactForm = () => {
                             id="Description"
                             onFocus={() => handleFocus("Description")}
                             onBlur={() => handleBlur("Description")}
-                            rows="4"  // Setting the number of visible lines
-                            className="bg-transparent text-white text-sm rounded-lg border border-gray-300 w-full p-2.5 focus:outline-none focus:ring-2 focus:ring-white resize-none"
+                            rows="3"
+                            className="bg-transparent text-white text-xs sm:text-sm rounded-lg border border-gray-300 w-full p-2 sm:p-2.5 focus:outline-none focus:ring-2 focus:ring-white resize-none"
                         />
                     </div>
                     <motion.button
-                        className='px-6 py-2 rounded-md relative radial-gradient'
+                        className='px-4 sm:px-5 lg:px-6 py-1.5 sm:py-2 rounded-md relative radial-gradient text-xs sm:text-sm lg:text-base'
                         initial={{ "--x": "100%", scale: 1 }}
                         animate={{ "--x": "-100%" }}
                         whileTap={{ scale: 0.95 }}

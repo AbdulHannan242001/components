@@ -5,11 +5,11 @@ import image from "../../assets/camera.jpg";
 
 const InvertedCard = () => {
   return (
-    <section className="min-h-[100vh] py-[60px] p-2">
-      <motion.div className="h-full w-full max-w-[500px] bg-gray-800 rounded-[24px] p-3 sm:p-4 md:p-6 mx-auto shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
-        <div className="rounded-2xl overflow-hidden h-full relative w-full min-h-[410px] sm:min-h-[550px] md:min-h-[650px]">
+    <section className="min-h-[100vh] py-[30px] sm:py-[45px] lg:py-[60px] px-4 sm:px-6 lg:px-8">
+      <motion.div className="h-full w-full max-w-[400px] sm:max-w-[450px] lg:max-w-[500px] bg-gray-800 rounded-[16px] sm:rounded-[20px] lg:rounded-[24px] p-3 sm:p-4 md:p-6 mx-auto shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+        <div className="rounded-xl sm:rounded-2xl overflow-hidden h-full relative w-full min-h-[300px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[650px]">
           <div className="absolute left-1 top-[4%] rounded-full bg-gray-800 z-50">
-            <p className="bg-lime-500 text-gray-800 text-sm sm:text-base md:text-xl font-semibold px-3 md:px-6 py-1 rounded-full">
+            <p className="bg-lime-500 text-gray-800 text-xs sm:text-sm md:text-base lg:text-xl font-semibold px-2 sm:px-3 md:px-4 lg:px-6 py-1 rounded-full">
               2023
             </p>
           </div>
@@ -34,22 +34,22 @@ const InvertedCard = () => {
               clipPath="url(#customClip)"
             />
           </svg>
-          <div className="flex flex-row justify-between items-center w-full absolute bottom-[5%] px-4 sm:px-6">
-            <div className="flex flex-row gap-2 sm:gap-3">
-              <p className="px-3 py-1 text-xs sm:text-sm text-white h-fit bg-neutral-500/20 backdrop-blur-sm rounded-full">
+          <div className="flex flex-row justify-between items-center w-full absolute bottom-[5%] px-3 sm:px-4 md:px-6">
+            <div className="flex flex-row gap-1 sm:gap-2 md:gap-3">
+              <p className="px-2 sm:px-3 py-1 text-xs sm:text-sm text-white h-fit bg-neutral-500/20 backdrop-blur-sm rounded-full">
                 Technology
               </p>
-              <p className="px-3 py-1 text-xs sm:text-sm text-white h-fit bg-neutral-500/20 backdrop-blur-sm rounded-full">
+              <p className="px-2 sm:px-3 py-1 text-xs sm:text-sm text-white h-fit bg-neutral-500/20 backdrop-blur-sm rounded-full">
                 Electronics
               </p>
             </div>
             <button className="duration-300 ease-in-out rounded-full p-1 sm:p-2 text-white bg-gray-800 hover:bg-lime-500">
-              <TbArrowUpRight size={20} className="sm:size-26" />
+              <TbArrowUpRight size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6" />
             </button>
           </div>
         </div>
-        <div className="max-w-full">
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">
+        <div className="max-w-full mt-3 sm:mt-4">
+          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white leading-tight">
             The Camera That Captures Your Moments
           </h1>
         </div>

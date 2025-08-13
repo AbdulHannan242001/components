@@ -50,7 +50,7 @@ const ScaleSection = () => {
             className="w-full h-full object-cover absolute inset-0"
             style={{ scale: bgVariant1 }}
           />
-          <h1 className="fixed top-[50%] left-1/2 -translate-x-1/2 text-5xl md:text-7xl font-bold text-white w-full text-center">
+          <h1 className="fixed top-[50%] left-1/2 -translate-x-1/2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold text-white w-full text-center px-4 sm:px-6 lg:px-8">
             Hello There
           </h1>
         </motion.div>
@@ -72,7 +72,7 @@ const ScaleSection = () => {
             className="w-full h-full object-cover absolute inset-0"
             style={{ scale: bgVariant2 }}
           />
-          <h1 className="fixed top-[50%] left-1/2 -translate-x-1/2 text-5xl md:text-7xl font-bold text-white w-full text-center">
+          <h1 className="fixed top-[50%] left-1/2 -translate-x-1/2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold text-white w-full text-center px-4 sm:px-6 lg:px-8">
             Still Here ?
           </h1>
         </motion.div>
@@ -94,7 +94,7 @@ const ScaleSection = () => {
             className="w-full h-full object-cover absolute inset-0"
             style={{ scale: bgVariant3 }}
           />
-          <h1 className="fixed top-[50%] left-1/2 -translate-x-1/2 text-5xl md:text-7xl font-bold text-white w-full text-center">
+          <h1 className="fixed top-[50%] left-1/2 -translate-x-1/2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold text-white w-full text-center px-4 sm:px-6 lg:px-8">
             Beat It Dude !
           </h1>
         </motion.div>

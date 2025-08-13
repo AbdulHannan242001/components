@@ -30,72 +30,72 @@ const BentoGrid = () => {
   };
 
   return (
-    <section className="flex justify-center items-center min-h-screen py-[60px] w-full text-black">
+    <section className="flex justify-center items-center min-h-screen py-[30px] sm:py-[45px] lg:py-[60px] px-4 sm:px-6 lg:px-8 w-full text-black">
       <div
         ref={buttonRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="flex flex-col p-2 gap-2 bg-black rounded-2xl w-full md:w-8/12 relative overflow-hidden z-10"
+        className="flex flex-col p-2 gap-2 bg-black rounded-xl sm:rounded-2xl w-full lg:w-8/12 relative overflow-hidden z-10"
       >
         <motion.div
-          className="absolute size-[180px] bg-gradient-to-tr from-yellow-200 to-amber-400 rounded-full blur-2xl z-10"
+          className="absolute size-[120px] sm:size-[150px] lg:size-[180px] bg-gradient-to-tr from-yellow-200 to-amber-400 rounded-full blur-2xl z-10"
           style={{ x, y }}
           initial={{ x: 0, y: -15 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
         />
-        <div className="flex flex-col md:flex-row gap-2 min-h-[300px] relative z-50">
-          <div className="w-full md:w-3/12 bg-neutral-100 p-[20px] hover:bg-gradient-to-b from-orange-500 to-amber-500 hover:text-white hover:rounded-xl rounded-3xl transition-all duration-300">
+        <div className="flex flex-col lg:flex-row gap-2 min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] relative z-50">
+          <div className="w-full lg:w-3/12 bg-neutral-100 p-[15px] sm:p-[20px] hover:bg-gradient-to-b from-orange-500 to-amber-500 hover:text-white hover:rounded-xl rounded-2xl sm:rounded-3xl transition-all duration-300">
             <div className="h-full w-full flex flex-col justify-between">
-              <p className="font-semibold text-2xl md:text-4xl tracking-tighter uppercase">
+              <p className="font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl tracking-tighter uppercase leading-tight">
                 DRAGON BALL Z
               </p>
-              <p className="text-base md:text-xl leading-none">Created by Akira Toriyama.</p>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-none">Created by Akira Toriyama.</p>
             </div>
           </div>
-          <div className="w-full md:w-9/12 bg-neutral-100 p-[20px] hover:rounded-xl rounded-3xl transition-all duration-200">
+          <div className="w-full lg:w-9/12 bg-neutral-100 p-[15px] sm:p-[20px] hover:rounded-xl rounded-2xl sm:rounded-3xl transition-all duration-200">
             <div className="h-full w-full flex flex-col justify-between">
-              <p className="font-semibold text-2xl md:text-4xl tracking-tighter uppercase">
+              <p className="font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl tracking-tighter uppercase leading-tight">
                 Aired On April 26, 1989
               </p>
-              <div className="flex flex-col md:flex-row justify-between items-end gap-4">
-                <p className="font-semibold text-3xl md:text-5xl tracking-tighter leading-none">
+              <div className="flex flex-col lg:flex-row justify-between items-end gap-4">
+                <p className="font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-none">
                   TOEI ANIMATION
                 </p>
-                <div className="flex flex-col md:flex-row gap-2 w-full ml-auto justify-end">
-                  <div className="h-[150px] w-full md:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
-                    <p className="text-3xl md:text-xl font-semibold">Protagonist</p>
-                    <p className="md:text-base text-2xl">Son Goku</p>
+                <div className="flex flex-col sm:flex-row gap-2 w-full ml-auto justify-end">
+                  <div className="h-[100px] sm:h-[120px] lg:h-[150px] w-full sm:max-w-[100px] lg:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
+                    <p className="text-lg sm:text-xl md:text-2xl lg:text-xl font-semibold">Protagonist</p>
+                    <p className="text-lg sm:text-xl md:text-2xl lg:text-base">Son Goku</p>
                   </div>
-                  <div className="h-[150px] w-full md:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
-                    <p className="text-3xl md:text-xl font-semibold">Episodes</p>
-                    <p className="md:text-base text-2xl">291</p>
+                  <div className="h-[100px] sm:h-[120px] lg:h-[150px] w-full sm:max-w-[100px] lg:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
+                    <p className="text-lg sm:text-xl md:text-2xl lg:text-xl font-semibold">Episodes</p>
+                    <p className="text-lg sm:text-xl md:text-2xl lg:text-base">291</p>
                   </div>
-                  <div className="h-[150px] w-full md:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
-                    <p className="text-3xl md:text-xl font-semibold">Seasons</p>
-                    <p className="md:text-base text-2xl">9</p>
+                  <div className="h-[100px] sm:h-[120px] lg:h-[150px] w-full sm:max-w-[100px] lg:max-w-[130px] bg-neutral-200 rounded-lg p-2 flex flex-col justify-between">
+                    <p className="text-lg sm:text-xl md:text-2xl lg:text-xl font-semibold">Seasons</p>
+                    <p className="text-lg sm:text-xl md:text-2xl lg:text-base">9</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-2 min-h-[300px] relative z-50">
+        <div className="flex flex-col lg:flex-row gap-2 min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] relative z-50">
           <div
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="w-full md:w-9/12 bg-neutral-100 p-[20px] hover:rounded-xl rounded-3xl transition-all duration-200 flex flex-row gap-[30px]"
+            className="w-full lg:w-9/12 bg-neutral-100 p-[15px] sm:p-[20px] hover:rounded-xl rounded-2xl sm:rounded-3xl transition-all duration-200 flex flex-col sm:flex-row gap-[15px] sm:gap-[20px] lg:gap-[30px]"
           >
-            <div className="h-full flex flex-col justify-between w-8/12">
-              <p className="font-semibold text-2xl md:text-4xl tracking-tighter uppercase">
+            <div className="h-full flex flex-col justify-between w-full sm:w-8/12">
+              <p className="font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl tracking-tighter uppercase leading-tight">
                 HISTORY
               </p>
-              <p className="text-base md:text-xl leading-none">
-                <span className="font-semibold text-3xl md:text-5xl tracking-tighter leading-none">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-none">
+                <span className="font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-tighter leading-none">
                   SEQUEL TO THE DRAGON BALL
                 </span>
               </p>
             </div>
-            <div className="h-full w-4/12 flex items-center justify-center">
+            <div className="h-full w-full sm:w-4/12 flex items-center justify-center">
               <motion.div
                 animate={{
                   scale: isHovered ? 1.1 : 1,
@@ -106,17 +106,17 @@ const BentoGrid = () => {
                     ? "0px 10px 30px rgba(0, 0, 0, 0.5)"
                     : "0px 0px 0px rgba(0, 120, 255, 0)",
                 }}
-                className="size-[75px] md:size-[150px] bg-gradient-to-tr from-yellow-600 to-orange-500 rounded-full relative"
+                className="size-[50px] sm:size-[75px] md:size-[100px] lg:size-[150px] bg-gradient-to-tr from-yellow-600 to-orange-500 rounded-full relative"
               >
                 <img
                   src={star}
                   alt="Star"
-                  className="absolute size-[28px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  className="absolute size-[18px] sm:size-[22px] md:size-[25px] lg:size-[28px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                 />
               </motion.div>
             </div>
           </div>
-          <div className="w-full md:w-3/12 bg-neutral-100 overflow-hidden hover:rounded-xl rounded-3xl transition-all duration-200">
+          <div className="w-full lg:w-3/12 bg-neutral-100 overflow-hidden hover:rounded-xl rounded-2xl sm:rounded-3xl transition-all duration-200">
             <motion.img
               whileHover={{ scale: 1.1 }}
               src={dbz}

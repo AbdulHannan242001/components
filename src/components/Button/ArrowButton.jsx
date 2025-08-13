@@ -34,16 +34,16 @@ const ArrowButton = ({ text }) => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div className="h-screen flex items-center justify-center px-4">
       <button
         ref={buttonRef}
-        className="w-fit active:scale-95 cursor-pointer overflow-hidden bg-gradient-to-tr from-violet-500 to-indigo-500 px-3 py-2 flex flex-row gap-2 text-white text-lg font-medium items-center relative z-10"
+        className="w-fit active:scale-95 cursor-pointer overflow-hidden bg-gradient-to-tr from-violet-500 to-indigo-500 px-2 sm:px-3 py-1.5 sm:py-2 flex flex-row gap-1 sm:gap-2 text-white text-sm sm:text-base lg:text-lg font-medium items-center relative z-10 rounded"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
         <p className="z-20">{text}</p>
         <span>
-          <TbArrowRight size={22} />
+          <TbArrowRight size={18} className="sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
         </span>
         <motion.div
           className="absolute size-[34px] bg-white rounded-full blur-lg"

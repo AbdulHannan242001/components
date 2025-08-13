@@ -56,7 +56,7 @@ const TiltCard = () => {
         height: '100%',
     };
     return (
-        <section className="flex items-center justify-center min-h-screen">
+        <section className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
             <motion.div
                 ref={ref}
                 onMouseMove={handleMouseMove}
@@ -70,7 +70,7 @@ const TiltCard = () => {
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
                 }}
-                className="relative h-96 w-72 rounded-xl"
+                className="relative h-64 w-48 sm:h-80 sm:w-64 lg:h-96 lg:w-72 rounded-xl"
             >
                 <div
                     style={{
@@ -78,13 +78,13 @@ const TiltCard = () => {
                         transformStyle: "preserve-3d",
 
                     }}
-                    className="absolute inset-5 grid place-content-center backdrop-blur-sm bg-opacity-30 rounded-xl bg-white shadow-2xl"
+                    className="absolute inset-3 sm:inset-4 lg:inset-5 grid place-content-center backdrop-blur-sm bg-opacity-30 rounded-xl bg-white shadow-2xl"
                 >
                     <p
                         style={{
                             transform: "translateZ(100px)",
                         }}
-                        className="text-center text-2xl font-bold"
+                        className="text-center text-lg sm:text-xl lg:text-2xl font-bold px-2"
                     >
                         I AM BATMAN
                     </p>

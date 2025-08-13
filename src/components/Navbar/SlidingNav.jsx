@@ -75,10 +75,10 @@ const SlidingNav = () => {
           <motion.h1
             key={item}
             variants={linkVariants}
-            className="text-white text-3xl md:text-5xl font-bold max-w-[1600px] w-full mx-auto cursor-pointer"
+            className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold max-w-[1600px] w-full mx-auto cursor-pointer"
           >
             <motion.button
-              className="px-4 py-2 md:p-4"
+              className="px-3 sm:px-4 py-2 md:p-4"
               whileHover={{ scale: 1.1, rotateZ: -10}}
               whileTap={{ scale: 0.9 }}
             >
@@ -89,13 +89,13 @@ const SlidingNav = () => {
       </motion.div>
 
       {/* Navbar */}
-      <div className="w-full sticky top-0 z-[100] backdrop-blur-[8px] pt-4 pb-1">
-        <div className="max-w-[1600px] flex flex-row justify-between mx-auto items-center px-8">
+      <div className="w-full sticky top-0 z-[100] backdrop-blur-[8px] pt-2 sm:pt-3 lg:pt-4 pb-1">
+        <div className="max-w-[1600px] flex flex-row justify-between mx-auto items-center px-4 sm:px-6 lg:px-8">
           <div className="flex flex-row items-center gap-x-2">
             <img
               src={logo}
               alt="Logo"
-              className="md:h-[60px] h-[40px] w-auto"
+              className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] md:h-[50px] md:w-[50px] lg:h-[60px] lg:w-[60px]"
             />
           </div>
           {/* Hamburger Button */}
@@ -105,7 +105,7 @@ const SlidingNav = () => {
         </div>
       </div>
       <div className="h-full w-full items-center justify-center flex">
-        <p className="text-3xl md:text-5xl font-black text-gray-300">Scroll To Discover</p>
+        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-gray-300 px-4 text-center">Scroll To Discover</p>
       </div>
     </div>
   );

@@ -8,10 +8,10 @@ const TextAnimation = ({ text }) => {
   return (
     <section
       ref={containerRef}
-      className="flex justify-center items-center min-h-screen text-xl md:text-5xl font-serif font-bold uppercase"
+      className="flex justify-center items-center min-h-screen text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-serif font-bold uppercase px-4 sm:px-6 lg:px-8"
     >
       {Array.from(text).map((letter, index) => (
-        <span key={index} className="overflow-hidden md:px-0.5">
+        <span key={index} className="overflow-hidden px-0.5 sm:px-1 md:px-0.5">
           <Alphabet
             key={`top-${index}`}
             letter={letter}
@@ -39,7 +39,7 @@ const Alphabet = ({ letter, delay, isSpace, isInView }) => {
       variants={variants}
       animate={isInView ? "animate" : "hidden"}
       transition={{ duration: 0.5, delay, ease: [0.4, 0.5, 0, 1.5] }}
-      className={`inline-block ${isSpace ? "mr-2" : "mr-[0px]"}`}
+      className={`inline-block ${isSpace ? "mr-1 sm:mr-2" : "mr-[0px]"}`}
     >
       {letter}
     </motion.span>

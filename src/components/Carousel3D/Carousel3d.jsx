@@ -5,6 +5,11 @@ import { Blurhash } from 'react-blurhash';
 const Carousel3d = ({ images = [], radius = 500, duration = 20, width = 200, height = 250 }) => {
     const totalCards = images.length;
 
+    // Responsive sizing based on screen size
+    const responsiveRadius = typeof window !== 'undefined' && window.innerWidth < 768 ? radius * 0.6 : radius;
+    const responsiveWidth = typeof window !== 'undefined' && window.innerWidth < 768 ? width * 0.8 : width;
+    const responsiveHeight = typeof window !== 'undefined' && window.innerWidth < 768 ? height * 0.8 : height;
+
     // Placeholder function to generate a Blurhash. 
     // Ideally, you'd have a precomputed Blurhash string for each image.
     const generateBlurHash = (imageSrc) => {
@@ -13,12 +18,12 @@ const Carousel3d = ({ images = [], radius = 500, duration = 20, width = 200, hei
     };
 
     return (
-        <section className='w-[100%] py-[60px] min-h-screen text-center overflow-hidden relative flex items-center justify-center'>
+        <section className='w-[100%] py-[30px] sm:py-[45px] lg:py-[60px] min-h-screen text-center overflow-hidden relative flex items-center justify-center px-4 sm:px-6 lg:px-8'>
             <motion.div
                 className="relative"
                 style={{
-                    width: `${width}px`,
-                    height: `${height}px`,
+                    width: `${responsiveWidth}px`,
+                    height: `${responsiveHeight}px`,
                     transformStyle: 'preserve-3d',
                     transform: `perspective(1000px) rotateX(-15deg)`,
                 }}
@@ -35,16 +40,16 @@ const Carousel3d = ({ images = [], radius = 500, duration = 20, width = 200, hei
                             key={index}
                             className='absolute'
                             style={{
-                                width: `${width}px`,
-                                height: `${height}px`,
-                                transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
+                                width: `${responsiveWidth}px`,
+                                height: `${responsiveHeight}px`,
+                                transform: `rotateY(${angle}deg) translateZ(${responsiveRadius}px)`,
                             }}
                         >
                             {/* Blurhash placeholder */}
                             <Blurhash
                                 hash={blurHash}
-                                width={width}
-                                height={height}
+                                width={responsiveWidth}
+                                height={responsiveHeight}
                                 resolutionX={32}
                                 resolutionY={32}
                                 punch={1}
