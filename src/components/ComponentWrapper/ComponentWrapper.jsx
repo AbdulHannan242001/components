@@ -12,9 +12,12 @@ const ComponentWrapper = ({
   nextjsCode 
 }) => {
   const [viewMode, setViewMode] = useState("preview"); // "preview" or "code"
+  
+  // Sanitize componentName for valid HTML id (e.g., "Basic Button" -> "basic-button")
+  const sanitizedId = componentName.replace(/\s+/g, '-').toLowerCase();
 
   return (
-    <div className="relative">
+    <div id={sanitizedId} className="relative">
       {/* Component Header */}
       <div className="sticky top-16 z-[9996] bg-neutral-900/90 backdrop-blur-xl border-b border-neutral-800 px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
@@ -23,7 +26,7 @@ const ComponentWrapper = ({
           </h3>
           <div className="flex items-center gap-4">
             {/* View Mode Toggle */}
-            <div className="flex bg-neutral-700 rounded-lg p-1">
+            <div className="flex flex-col md:flex-row bg-neutral-700 rounded-lg p-1">
               <button
                 onClick={() => setViewMode("preview")}
                 className={`flex items-center gap-2 px-3 py-1 rounded text-xs font-medium transition-colors ${

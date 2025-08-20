@@ -61,6 +61,7 @@ import SlideTabsExample from "./components/SlideTabs/SlideTabs";
 function App() {
   const [isScrolling, setIsScrolling] = useState(false);
   const scrollTimeoutRef = useRef(null);
+  const lenisRef = useRef(null);
 
   const cardImg = [
     "https://picsum.photos/2100/2100",
@@ -77,23 +78,29 @@ function App() {
 
   // Create wrapper components for components that need props
   const ShutterCardWrapper = () => (
-        <ShutterCard
-          heading="Some Heading"
-          description="This can be a description about the service or product or pretty much anything you can use this card for. Its looks real good in terms of these micro interactions."
-          topText="Hover me"
-          bottomText="A short intimate description"
-          imageSrc={image}
-        />
+    <ShutterCard
+      heading="Some Heading"
+      description="This can be a description about the service or product or pretty much anything you can use this card for. Its looks real good in terms of these micro interactions."
+      topText="Hover me"
+      bottomText="A short intimate description"
+      imageSrc={image}
+    />
   );
 
   const ArrowButtonWrapper = () => <ArrowButton text={"Lit Button"} />;
-  const BorderButtonWrapper = () => <BorderButton text={"Border Button"} color={"#ffffff"} />;
-  const CircularButtonWrapper = () => <CircularButton text={"Circular Button"} />;
-  const TextAnimationWrapper = () => <TextAnimation text={"Short Text Animation"} />;
+  const BorderButtonWrapper = () => (
+    <BorderButton text={"Border Button"} color={"#ffffff"} />
+  );
+  const CircularButtonWrapper = () => (
+    <CircularButton text={"Circular Button"} />
+  );
+  const TextAnimationWrapper = () => (
+    <TextAnimation text={"Short Text Animation"} />
+  );
   const Carousel3dWrapper = () => <Carousel3d images={cardImg} />;
 
   const componentCategories = {
-    "Buttons": {
+    Buttons: {
       "Basic Button": Button,
       "Arrow Button": ArrowButtonWrapper,
       "Border Button": BorderButtonWrapper,
@@ -103,7 +110,7 @@ function App() {
       "Capsule Button": CapsuleButton,
       "Shiny Button": ShinyButton,
     },
-    "Cards": {
+    Cards: {
       "Squishy Card": SquishyCard,
       "Tilt Card": TiltCard,
       "Inverted Card": InvertedCard,
@@ -118,7 +125,7 @@ function App() {
       "Text Animation": TextAnimationWrapper,
       "Text Mask": TextMask,
     },
-    "Navigation": {
+    Navigation: {
       "Sliding Nav": SlidingNav,
       "Slide Tabs": SlideTabsExample,
     },
@@ -155,33 +162,49 @@ function App() {
     "Special Effects": {
       "Split Vignette Effect": SplitVignetteEffect,
       "Floating Phone": FloatingPhone,
-    }
+    },
   };
 
   const scrollToComponent = (componentName) => {
-    const element = document.getElementById(componentName);
-    if (element) {
-      setIsScrolling(true);
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
+    // Add a small delay to ensure DOM is fully rendered
+    setTimeout(() => {
+      const sanitizedId = componentName.replace(/\s+/g, "-").toLowerCase();
+      const element = document.getElementById(sanitizedId);
       
-      // Clear existing timeout
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
+      if (element && lenisRef.current && lenisRef.current.lenis) {
+        setIsScrolling(true);
+        lenisRef.current.lenis.scrollTo(element, {
+          offset: -80, // Offset to account for the fixed header
+          lerp: 0.1, // Smoothness factor
+          duration: 1, // Duration of scroll animation
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing function
+        });
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current);
+        }
+        scrollTimeoutRef.current = setTimeout(() => {
+          setIsScrolling(false);
+        }, 1000);
+      } else {
+        console.error(
+          `Element with id "${sanitizedId}" not found or Lenis not initialized for component "${componentName}"`
+        );
+        // Fallback to native scroll if Lenis is not available
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
       }
-      
-      // Set scrolling to false after animation completes
-      scrollTimeoutRef.current = setTimeout(() => {
-        setIsScrolling(false);
-      }, 1000);
-    }
+    }, 100);
   };
-
   return (
-    <Lenis root>
-      <Layout componentCategories={componentCategories} scrollToComponent={scrollToComponent}>
+    <Lenis root ref={lenisRef}>
+      <Layout
+        componentCategories={componentCategories}
+        scrollToComponent={scrollToComponent}
+      >
         {/* Hero Section */}
         <HeroSection scrollToComponent={scrollToComponent} />
 
@@ -190,7 +213,7 @@ function App() {
           {Object.entries(componentCategories).map(([category, components]) => (
             <div key={category}>
               {/* Category Header */}
-              <div id={category} className="pt-20 pb-8 px-4 sm:px-6 lg:px-8">
+              <div id={category.toLowerCase().replace(/\s+/g, "-")} className="pt-20 pb-8 px-4 sm:px-6 lg:px-8">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -222,7 +245,7 @@ function App() {
               })}
             </div>
           ))}
-      </section>
+        </section>
 
         {/* Footer */}
         <footer className="bg-neutral-900 border-t border-neutral-800 py-12 px-4 sm:px-6 lg:px-8">
@@ -235,7 +258,8 @@ function App() {
             </p>
             <div className="flex justify-center gap-4">
               <span className="text-sm text-neutral-500">
-                Scroll-driven animations • Interactive effects • Responsive design
+                Scroll-driven animations • Interactive effects • Responsive
+                design
               </span>
             </div>
           </div>

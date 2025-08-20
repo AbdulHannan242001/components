@@ -49,7 +49,7 @@ const CodeViewer = ({ componentName, reactCode, nextjsCode }) => {
         
         <div className="flex items-center gap-2">
           {/* Tab Toggle */}
-          <div className="flex bg-neutral-700 rounded-lg p-1">
+          <div className="flex md:flex-row flex-col bg-neutral-700 rounded-lg p-1">
             <button
               onClick={() => setActiveTab("react")}
               className={`px-3 py-1 rounded text-xs font-medium transition-colors ${

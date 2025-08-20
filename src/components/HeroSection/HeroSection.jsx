@@ -34,7 +34,7 @@ const HeroSection = ({ setSidebarOpen, scrollToComponent }) => {
               Explore Components
             </button>
             <button
-              onClick={() => scrollToComponent("Buttons")}
+              onClick={() => scrollToComponent("buttons")}
               className="px-8 py-4 border-2 border-white/20 hover:border-white/40 text-white font-semibold rounded-lg transition-all duration-300 hover:bg-white/10"
             >
               Get Started
