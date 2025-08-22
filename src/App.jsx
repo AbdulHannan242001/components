@@ -69,6 +69,30 @@ function App() {
   const lenisRef = useRef(null);
   const loadingStartedRef = useRef(false);
 
+  // Dynamic tab title functionality
+  useEffect(() => {
+    const originalTitle = "ICL - Interactive Components Library";
+    const hiddenTitle = "ICL - I'm Batman";
+    
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        document.title = hiddenTitle;
+      } else {
+        document.title = originalTitle;
+      }
+    };
+
+    // Listen for visibility change events
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    
+    // Set initial title
+    document.title = originalTitle;
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
   const cardImg = React.useMemo(() => [
     "https://picsum.photos/2100/2100",
     "https://picsum.photos/2200/2200",

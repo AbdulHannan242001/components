@@ -38,7 +38,9 @@ const Layout = ({ children, componentCategories, scrollToComponent }) => {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
             <img src={logo} alt="Logo" className="h-8 w-8" />
-            <h1 className="text-xl font-bold text-white">Component Library</h1>
+            <h1 className="text-xl font-bold text-white">
+              ICL - Interactive Component Library
+            </h1>
           </div>
           <button
             onClick={() => setSidebarOpen(false)}
@@ -50,7 +52,10 @@ const Layout = ({ children, componentCategories, scrollToComponent }) => {
 
         <div className="space-y-2">
           {Object.entries(componentCategories).map(([category, components]) => (
-            <div key={category} className="border border-neutral-800 rounded-lg overflow-hidden">
+            <div
+              key={category}
+              className="border border-neutral-800 rounded-lg overflow-hidden"
+            >
               <button
                 onClick={(e) => toggleCategory(category, e)}
                 className="w-full p-4 text-left bg-neutral-800/50 hover:bg-neutral-800 transition-colors flex items-center justify-between text-white"
@@ -63,7 +68,7 @@ const Layout = ({ children, componentCategories, scrollToComponent }) => {
                   <TbChevronDown size={20} />
                 </motion.div>
               </button>
-              
+
               <AnimatePresence>
                 {activeCategory === category && (
                   <motion.div
@@ -98,7 +103,7 @@ const Layout = ({ children, componentCategories, scrollToComponent }) => {
     <div className="relative">
       {/* Sidebar */}
       <Sidebar />
-      
+
       {/* Overlay */}
       <AnimatePresence>
         {sidebarOpen && (
@@ -119,7 +124,9 @@ const Layout = ({ children, componentCategories, scrollToComponent }) => {
           <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex items-center gap-3">
               <img src={logo} alt="Logo" className="h-8 w-8" />
-              <h1 className="text-xl font-bold text-white">Component Library</h1>
+              <h1 className="text-xl font-bold text-white">
+                ICL - Interactive Component Library
+              </h1>
             </div>
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -131,7 +138,7 @@ const Layout = ({ children, componentCategories, scrollToComponent }) => {
         </header>
 
         {/* Content */}
-        {React.Children.map(children, child => 
+        {React.Children.map(children, (child) =>
           React.cloneElement(child, { setSidebarOpen })
         )}
       </main>
