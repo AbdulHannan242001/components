@@ -65,6 +65,7 @@ import TextAnimation from "./components/TextAnimation/TextAnimation";
 import CapsuleButton from "./components/CapsuleButton/CapsuleButton";
 import CircularBanner from "./components/CircularBanner/CircularBanner";
 import SlideTabsExample from "./components/SlideTabs/SlideTabs";
+import DataTable from "./components/DataTable/DataTable";
 
 function App() {
   const [isScrolling, setIsScrolling] = useState(false);
@@ -73,6 +74,191 @@ function App() {
   const scrollTimeoutRef = useRef(null);
   const lenisRef = useRef(null);
   const loadingStartedRef = useRef(false);
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(20);
+  const [tableLoading, setTableLoading] = useState(false);
+
+  useEffect(() => {
+    setTableLoading(true);
+    const timer = setTimeout(() => {
+      setTableLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [page, size]);
+
+  const data = React.useMemo(() => {
+    // Arrays for more realistic data
+    const firstNames = [
+      "Alice",
+      "Bob",
+      "Charlie",
+      "David",
+      "Eve",
+      "Frank",
+      "Grace",
+      "Heidi",
+      "Ivan",
+      "Judy",
+      "Kevin",
+      "Laura",
+      "Mike",
+      "Nancy",
+      "Oscar",
+      "Pam",
+      "Quinn",
+      "Ray",
+      "Sara",
+      "Tom",
+      "Ursula",
+      "Victor",
+      "Wendy",
+      "Xavier",
+      "Yara",
+      "Zack",
+    ];
+    const lastNames = [
+      "Smith",
+      "Johnson",
+      "Williams",
+      "Brown",
+      "Jones",
+      "Garcia",
+      "Miller",
+      "Davis",
+      "Rodriguez",
+      "Martinez",
+      "Hernandez",
+      "Lopez",
+      "Gonzales",
+      "Wilson",
+      "Anderson",
+      "Thomas",
+      "Taylor",
+      "Moore",
+      "Jackson",
+      "Martin",
+    ];
+    const departments = [
+      "Engineering",
+      "Marketing",
+      "Sales",
+      "HR",
+      "Finance",
+      "Product",
+      "Operations",
+    ];
+    const statuses = ["Active", "Inactive", "Pending", "On Leave"];
+    const cities = [
+      "New York",
+      "London",
+      "Paris",
+      "Tokyo",
+      "Berlin",
+      "Sydney",
+      "Toronto",
+      "Dubai",
+      "Singapore",
+    ];
+
+    const generatedData = [];
+    const totalRecords = 50;
+
+    // Helper function to get a random item from an array
+    const getRandomItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+    // Helper function to generate a more realistic ID (e.g., employee ID)
+    const generateEmployeeId = (index) =>
+      `EMP-${String(index + 1).padStart(4, "0")}`;
+
+    for (let i = 0; i < totalRecords; i++) {
+      const firstName = getRandomItem(firstNames);
+      const lastName = getRandomItem(lastNames);
+      const department = getRandomItem(departments);
+
+      generatedData.push({
+        id: generateEmployeeId(i), // More authentic ID format
+        firstName: firstName,
+        lastName: lastName,
+        age: Math.floor(Math.random() * 35) + 22, // Ages 22 to 56
+        email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}${i}@corp.com`, // Authentic corporate email
+        city: getRandomItem(cities),
+        department: department, // New field
+        status: getRandomItem(statuses), // New field
+        salary: Math.floor(Math.random() * (150000 - 50000 + 1)) + 50000, // Salary from 50k to 150k
+        startDate: new Date(
+          Date.now() - Math.floor(Math.random() * 315360000000)
+        ).toLocaleDateString("en-US"), // Start date within last 10 years
+      });
+    }
+    return generatedData;
+  }, []);
+
+  const columns = React.useMemo(
+    () => [
+      {
+        header: "Employee ID",
+        accessorKey: "id",
+        enableSorting: true,
+        isSearchable: true,
+      },
+      {
+        header: "First Name",
+        accessorKey: "firstName",
+        enableSorting: true,
+        isSearchable: true,
+      },
+      {
+        header: "Last Name",
+        accessorKey: "lastName",
+        enableSorting: true,
+        isSearchable: true,
+      },
+      // New columns added below
+      {
+        header: "Department",
+        accessorKey: "department",
+        enableSorting: true,
+        isSearchable: true,
+      },
+      {
+        header: "Status",
+        accessorKey: "status",
+        enableSorting: true,
+        isSearchable: true,
+      },
+      {
+        header: "Age",
+        accessorKey: "age",
+        enableSorting: true,
+        isSearchable: true,
+      },
+      {
+        header: "Email",
+        accessorKey: "email",
+        enableSorting: true,
+        isSearchable: true,
+      },
+      {
+        header: "City",
+        accessorKey: "city",
+        enableSorting: true,
+        isSearchable: true,
+      },
+      {
+        header: "Salary",
+        accessorKey: "salary",
+        enableSorting: true,
+        isSearchable: false, // Not typically searchable by input
+      },
+      {
+        header: "Start Date",
+        accessorKey: "startDate",
+        enableSorting: true,
+        isSearchable: true,
+      },
+    ],
+    []
+  );
 
   // Dynamic tab title functionality
   useEffect(() => {
@@ -225,6 +411,21 @@ function App() {
       ),
     [cardImg]
   );
+  const DataTableWrapper = React.useMemo(
+    () => () =>
+      (
+        <DataTable
+          columns={columns}
+          data={data}
+          loading={!(data.length > 0) || tableLoading}
+          page={page}
+          setPage={setPage}
+          size={size}
+          setSize={setSize}
+        />
+      ),
+    [columns, data, tableLoading, page, size]
+  );
 
   const componentCategories = React.useMemo(
     () => ({
@@ -321,6 +522,9 @@ function App() {
         "Split Vignette Effect": SplitVignetteEffect,
         "Floating Phone": FloatingPhone,
       },
+      "Data & Tables": {
+        "Data Table": DataTableWrapper,
+      },
     }),
     [
       ArrowButtonWrapper,
@@ -329,6 +533,7 @@ function App() {
       ShutterCardWrapper,
       TextAnimationWrapper,
       Carousel3dWrapper,
+      DataTableWrapper,
     ]
   );
 
