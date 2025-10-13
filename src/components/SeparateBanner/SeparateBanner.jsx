@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import camera from "../../assets/camera.jpg";
 
-const SeperateBanner = () => {
+const SeparateBanner = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -57,4 +57,4 @@ const SeperateBanner = () => {
   );
 };
 
-export default SeperateBanner;
+export default SeparateBanner;

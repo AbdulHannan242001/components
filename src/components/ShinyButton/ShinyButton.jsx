@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import "./index.css"
 
 const ShinyButton = () => {
+
     return (
         <section className="min-h-screen flex items-center justify-center">
             <motion.button

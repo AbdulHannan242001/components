@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import HamburgerButton from "../Button/HamburgerButton";
+import HamburgerButton from "../HamburgerButton/HamburgerButton";
 import logo from "../../assets/Logo.svg";
 
 const SlidingNav = () => {

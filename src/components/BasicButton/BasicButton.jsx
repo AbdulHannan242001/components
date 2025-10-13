@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { TbArrowRight } from "react-icons/tb";
 
-const Button = () => {
+const BasicButton = () => {
   return (
     <section className="flex justify-center items-center min-h-screen px-4">
       <motion.button
@@ -20,4 +20,4 @@ const Button = () => {
   );
 };
 
-export default Button;
+export default BasicButton;

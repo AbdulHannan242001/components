@@ -24,7 +24,8 @@ const HeroSection = ({ setSidebarOpen, scrollToComponent }) => {
             </span>
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            A collection of beautifully crafted, responsive components with smooth animations and interactive effects
+            A collection of beautifully crafted, responsive components with
+            smooth animations and interactive effects
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
@@ -40,6 +41,19 @@ const HeroSection = ({ setSidebarOpen, scrollToComponent }) => {
               Get Started
             </button>
           </div>
+          <p className="text-xs sm:text-sm md:text-base text-neutral-300 mt-8 max-w-3xl mx-auto leading-relaxed">
+            * Next.Js Code snippets might not be 100% accurate. I am trying to
+            update the script for more accurate React to Next.js conversion.
+          </p>
+          <p>
+            For any suggestions or issues, please mail here -{" "}
+            <a
+              href="mailto:terminator.zed2018@gmail.com"
+              className="underline hover:text-white"
+            >
+              terminator.zed2018@gmail.com
+            </a>
+          </p>
         </motion.div>
       </div>
 

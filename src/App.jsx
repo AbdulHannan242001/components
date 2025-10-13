@@ -9,56 +9,61 @@ import image from "./assets/camera.jpg";
 import Layout from "./components/Layout/Layout";
 import HeroSection from "./components/HeroSection/HeroSection";
 import ComponentWrapper from "./components/ComponentWrapper/ComponentWrapper";
-import { componentCodes, getDefaultCode } from "./data/componentCodes";
+// import { componentCodes, getDefaultCode } from "./data/componentCodes";
+import { componentCodes, getDefaultCode } from "./data/generatedComponentCodes";
 import IntroAnimation from "./components/IntroAnimation/IntroAnimation";
 
 // Lazy load heavy components
-const Carousel3d = lazy(() => import("./components/Carousel3D/Carousel3d"));
-const SwiperSlider = lazy(() => import("./components/SwiperSlider/SwiperSlider"));
-const ParticleSection = lazy(() => import("./components/ParticleSection/ParticleSection"));
+const Carousel3d = lazy(() => import("./components/Carousel3d/Carousel3d"));
+const SwiperSlider = lazy(() =>
+  import("./components/SwiperSlider/SwiperSlider")
+);
+const ParticleSection = lazy(() =>
+  import("./components/ParticleSection/ParticleSection")
+);
 const ImageTrail = lazy(() => import("./components/ImageTrail/ImageTrail"));
 
 // Import all components (keeping essential ones for first render)
 import InvertedText from "./components/InvertedText/InvertedText";
 import SquishyCard from "./components/SquishyCard/SquishyCard";
 import TiltCard from "./components/TiltCard/TiltCard";
-import Word from "./components/Word/Word";
+import WordAnimation from "./components/WordAnimation/WordAnimation";
 import CustomBorder from "./components/CustomBorder/CustomBorder";
 import ColorCards from "./components/ColorCards/ColorCards";
 import SkewText from "./components/SkewText/SkewText";
-import Button from "./components/Button/Button";
+import BasicButton from "./components/BasicButton/BasicButton";
 import ShinyButton from "./components/ShinyButton/ShinyButton";
 import ContactForm from "./components/ContactForm/ContactForm";
 import SplitVignetteEffect from "./components/SplitVignetteEffect/SplitVignetteEffect";
 import FloatingPhone from "./components/FloatingPhone/FloatingPhone";
-import CallToAction from "./components/CTA/callToAction";
+import CallToAction from "./components/CallToAction/CallToAction";
 import ParallaxSection from "./components/ParallaxSection/ParallaxSection";
-import BallSwitchSlider from "./components/BallSwitch/BallSwitchSlider";
-import ImageParallax from "./components/ScrollImageParallax/ImageParallax";
-import InViewAnimation from "./components/InViewImage/InViewAnimation";
+import BallSwitchSlider from "./components/BallSwitchSlider/BallSwitchSlider";
+import ImageParallax from "./components/ImageParallax/ImageParallax";
+import InViewAnimation from "./components/InViewAnimation/InViewAnimation";
 import TwoAxisSlider from "./components/TwoAxisSlider/TwoAxisSlider";
 import InfiniteMarquee from "./components/InfiniteMarquee/InfiniteMarquee";
-import RevealFooter from "./components/Footer/RevealFooter";
+import RevealFooter from "./components/RevealFooter/RevealFooter";
 import ColumnParallax from "./components/ColumnParallax/ColumnParallax";
-import BorderButton from "./components/Button/BorderButton";
-import SlidingNav from "./components/Navbar/SlidingNav";
-import ArrowButton from "./components/Button/ArrowButton";
-import OverlapButton from "./components/Button/OverlapButton";
+import BorderButton from "./components/BorderButton/BorderButton";
+import SlidingNav from "./components/SlidingNav/SlidingNav";
+import ArrowButton from "./components/ArrowButton/ArrowButton";
+import OverlapButton from "./components/OverlapButton/OverlapButton";
 import InvertedCard from "./components/InvertedCard/InvertedCard";
-import BentoGrid from "./components/Bento/BentoGrid";
+import BentoGrid from "./components/BentoGrid/BentoGrid";
 import ShutterCard from "./components/ShutterCard/ShutterCard";
-import TextButton from "./components/Button/TextButton";
-import CircularButton from "./components/Button/CircularButton";
+import TextButton from "./components/TextButton/TextButton";
+import CircularButton from "./components/CircularButton/CircularButton";
 import TextMask from "./components/TextMask/TextMask";
-import SeperateBanner from "./components/Banner/SeperateBanner";
+import SeparateBanner from "./components/SeparateBanner/SeparateBanner";
 import Card from "./components/ParallaxCard/Card";
 import Grid from "./components/ReflectiveGrid/Grid";
 import ScaleSection from "./components/ScaleSection/ScaleSection";
-import RevealGallery from "./components/Gallery/RevealGallery";
-import StickyGallery from "./components/Gallery/StickyGallery";
+import RevealGallery from "./components/RevealGallery/RevealGallery";
+import StickyGallery from "./components/StickyGallery/StickyGallery";
 import TextAnimation from "./components/TextAnimation/TextAnimation";
-import CapsuleButton from "./components/Button/CapsuleButton";
-import CircularBanner from "./components/Banner/CircularBanner";
+import CapsuleButton from "./components/CapsuleButton/CapsuleButton";
+import CircularBanner from "./components/CircularBanner/CircularBanner";
 import SlideTabsExample from "./components/SlideTabs/SlideTabs";
 
 function App() {
@@ -73,7 +78,7 @@ function App() {
   useEffect(() => {
     const originalTitle = "ICL - Interactive Components Library";
     const hiddenTitle = "ICL - I'm Batman";
-    
+
     const handleVisibilityChange = () => {
       if (document.hidden) {
         document.title = hiddenTitle;
@@ -84,7 +89,7 @@ function App() {
 
     // Listen for visibility change events
     document.addEventListener("visibilitychange", handleVisibilityChange);
-    
+
     // Set initial title
     document.title = originalTitle;
 
@@ -93,27 +98,30 @@ function App() {
     };
   }, []);
 
-  const cardImg = React.useMemo(() => [
-    "https://picsum.photos/2100/2100",
-    "https://picsum.photos/2200/2200",
-    "https://picsum.photos/2300/2300",
-    "https://picsum.photos/2400/2400",
-    "https://picsum.photos/1900/1900",
-    "https://picsum.photos/1800/1800",
-    "https://picsum.photos/1700/1700",
-    "https://picsum.photos/1600/1600",
-    "https://picsum.photos/1500/1500",
-    "https://picsum.photos/1400/1400",
-  ], []);
+  const cardImg = React.useMemo(
+    () => [
+      "https://picsum.photos/2100/2100",
+      "https://picsum.photos/2200/2200",
+      "https://picsum.photos/2300/2300",
+      "https://picsum.photos/2400/2400",
+      "https://picsum.photos/1900/1900",
+      "https://picsum.photos/1800/1800",
+      "https://picsum.photos/1700/1700",
+      "https://picsum.photos/1600/1600",
+      "https://picsum.photos/1500/1500",
+      "https://picsum.photos/1400/1400",
+    ],
+    []
+  );
 
   useEffect(() => {
     // Prevent multiple loading processes
     if (loadingStartedRef.current) {
       return;
     }
-    
+
     loadingStartedRef.current = true;
-    
+
     const loadImages = async () => {
       // Only load essential images for first render
       const essentialAssets = [logo]; // Only logo is essential for intro
@@ -148,7 +156,7 @@ function App() {
 
       try {
         await Promise.all(essentialPromises);
-        
+
         // Load remaining images in background after essential assets
         setTimeout(() => {
           const remainingAssets = [...cardImg, image];
@@ -158,7 +166,6 @@ function App() {
             // No need to track progress for background loading
           });
         }, 100);
-        
       } catch (error) {
         console.error("Error loading images:", error);
         setLoadingComplete(true);
@@ -173,109 +180,157 @@ function App() {
   }, []);
 
   // Create wrapper components for components that need props - memoized for performance
-  const ShutterCardWrapper = React.useMemo(() => () => (
-    <ShutterCard
-      heading="Some Heading"
-      description="This can be a description about the service or product or pretty much anything you can use this card for. Its looks real good in terms of these micro interactions."
-      topText="Hover me"
-      bottomText="A short intimate description"
-      imageSrc={image}
-    />
-  ), [image]);
+  const ShutterCardWrapper = React.useMemo(
+    () => () =>
+      (
+        <ShutterCard
+          heading="Some Heading"
+          description="This can be a description about the service or product or pretty much anything you can use this card for. Its looks real good in terms of these micro interactions."
+          topText="Hover me"
+          bottomText="A short intimate description"
+          imageSrc={image}
+        />
+      ),
+    [image]
+  );
 
-  const ArrowButtonWrapper = React.useMemo(() => () => <ArrowButton text={"Lit Button"} />, []);
-  const BorderButtonWrapper = React.useMemo(() => () => (
-    <BorderButton text={"Border Button"} color={"#ffffff"} />
-  ), []);
-  const CircularButtonWrapper = React.useMemo(() => () => (
-    <CircularButton text={"Circular Button"} />
-  ), []);
-  const TextAnimationWrapper = React.useMemo(() => () => (
-    <TextAnimation text={"Short Text Animation"} />
-  ), []);
-  const Carousel3dWrapper = React.useMemo(() => () => (
-    <Suspense fallback={<div className="h-64 bg-neutral-800 rounded-lg flex items-center justify-center text-white">Loading...</div>}>
-      <Carousel3d images={cardImg} />
-    </Suspense>
-  ), [cardImg]);
+  const ArrowButtonWrapper = React.useMemo(
+    () => () => <ArrowButton text={"Lit Button"} />,
+    []
+  );
+  const BorderButtonWrapper = React.useMemo(
+    () => () => <BorderButton text={"Border Button"} color={"#ffffff"} />,
+    []
+  );
+  const CircularButtonWrapper = React.useMemo(
+    () => () => <CircularButton text={"Circular Button"} />,
+    []
+  );
+  const TextAnimationWrapper = React.useMemo(
+    () => () => <TextAnimation text={"Short Text Animation"} />,
+    []
+  );
+  const Carousel3dWrapper = React.useMemo(
+    () => () =>
+      (
+        <Suspense
+          fallback={
+            <div className="h-64 bg-neutral-800 rounded-lg flex items-center justify-center text-white">
+              Loading...
+            </div>
+          }
+        >
+          <Carousel3d images={cardImg} />
+        </Suspense>
+      ),
+    [cardImg]
+  );
 
-  const componentCategories = React.useMemo(() => ({
-    Buttons: {
-      "Basic Button": Button,
-      "Arrow Button": ArrowButtonWrapper,
-      "Border Button": BorderButtonWrapper,
-      "Overlap Button": OverlapButton,
-      "Text Button": TextButton,
-      "Circular Button": CircularButtonWrapper,
-      "Capsule Button": CapsuleButton,
-      "Shiny Button": ShinyButton,
-    },
-    Cards: {
-      "Squishy Card": SquishyCard,
-      "Tilt Card": TiltCard,
-      "Inverted Card": InvertedCard,
-      "Shutter Card": ShutterCardWrapper,
-      "Parallax Card": Card,
-      "Color Cards": ColorCards,
-    },
-    "Text Effects": {
-      "Inverted Text": InvertedText,
-      "Word Animation": Word,
-      "Skew Text": SkewText,
-      "Text Animation": TextAnimationWrapper,
-      "Text Mask": TextMask,
-    },
-    Navigation: {
-      "Sliding Nav": SlidingNav,
-      "Slide Tabs": SlideTabsExample,
-    },
-    "Galleries & Sliders": {
-      "3D Carousel": Carousel3dWrapper,
-      "Swiper Slider": () => (
-        <Suspense fallback={<div className="h-64 bg-neutral-800 rounded-lg flex items-center justify-center text-white">Loading...</div>}>
-          <SwiperSlider />
-        </Suspense>
-      ),
-      "Two Axis Slider": TwoAxisSlider,
-      "Reveal Gallery": RevealGallery,
-      "Sticky Gallery": StickyGallery,
-      "Ball Switch Slider": BallSwitchSlider,
-    },
-    "Layout & Sections": {
-      "Bento Grid": BentoGrid,
-      "Reflective Grid": Grid,
-      "Scale Section": ScaleSection,
-      "Parallax Section": ParallaxSection,
-      "Column Parallax": ColumnParallax,
-      "Image Parallax": ImageParallax,
-      "Particle Section": () => (
-        <Suspense fallback={<div className="h-64 bg-neutral-800 rounded-lg flex items-center justify-center text-white">Loading...</div>}>
-          <ParticleSection />
-        </Suspense>
-      ),
-    },
-    "Interactive Elements": {
-      "Contact Form": ContactForm,
-      "Custom Border": CustomBorder,
-      "Image Trail": () => (
-        <Suspense fallback={<div className="h-64 bg-neutral-800 rounded-lg flex items-center justify-center text-white">Loading...</div>}>
-          <ImageTrail />
-        </Suspense>
-      ),
-      "Infinite Marquee": InfiniteMarquee,
-      "In View Animation": InViewAnimation,
-    },
-    "Banners & CTAs": {
-      "Circular Banner": CircularBanner,
-      "Separate Banner": SeperateBanner,
-      "Call To Action": CallToAction,
-      "Reveal Footer": RevealFooter,
-    },
-    "Special Effects": {
-      "Split Vignette Effect": SplitVignetteEffect,
-      "Floating Phone": FloatingPhone,
-    },
-  }), [ArrowButtonWrapper, BorderButtonWrapper, CircularButtonWrapper, ShutterCardWrapper, TextAnimationWrapper, Carousel3dWrapper]);
+  const componentCategories = React.useMemo(
+    () => ({
+      Buttons: {
+        "Basic Button": BasicButton,
+        "Arrow Button": ArrowButtonWrapper,
+        "Border Button": BorderButtonWrapper,
+        "Overlap Button": OverlapButton,
+        "Text Button": TextButton,
+        "Circular Button": CircularButtonWrapper,
+        "Capsule Button": CapsuleButton,
+        "Shiny Button": ShinyButton,
+      },
+      Cards: {
+        "Squishy Card": SquishyCard,
+        "Tilt Card": TiltCard,
+        "Inverted Card": InvertedCard,
+        "Shutter Card": ShutterCardWrapper,
+        "Parallax Card": Card,
+        "Color Cards": ColorCards,
+      },
+      "Text Effects": {
+        "Inverted Text": InvertedText,
+        "Word Animation": WordAnimation,
+        "Skew Text": SkewText,
+        "Text Animation": TextAnimationWrapper,
+        "Text Mask": TextMask,
+      },
+      Navigation: {
+        "Sliding Nav": SlidingNav,
+        "Slide Tabs": SlideTabsExample,
+      },
+      "Galleries & Sliders": {
+        "3D Carousel": Carousel3dWrapper,
+        "Swiper Slider": () => (
+          <Suspense
+            fallback={
+              <div className="h-64 bg-neutral-800 rounded-lg flex items-center justify-center text-white">
+                Loading...
+              </div>
+            }
+          >
+            <SwiperSlider />
+          </Suspense>
+        ),
+        "Two Axis Slider": TwoAxisSlider,
+        "Reveal Gallery": RevealGallery,
+        "Sticky Gallery": StickyGallery,
+        "Ball Switch Slider": BallSwitchSlider,
+      },
+      "Layout & Sections": {
+        "Bento Grid": BentoGrid,
+        "Reflective Grid": Grid,
+        "Scale Section": ScaleSection,
+        "Parallax Section": ParallaxSection,
+        "Column Parallax": ColumnParallax,
+        "Image Parallax": ImageParallax,
+        "Particle Section": () => (
+          <Suspense
+            fallback={
+              <div className="h-64 bg-neutral-800 rounded-lg flex items-center justify-center text-white">
+                Loading...
+              </div>
+            }
+          >
+            <ParticleSection />
+          </Suspense>
+        ),
+      },
+      "Interactive Elements": {
+        "Contact Form": ContactForm,
+        "Custom Border": CustomBorder,
+        "Image Trail": () => (
+          <Suspense
+            fallback={
+              <div className="h-64 bg-neutral-800 rounded-lg flex items-center justify-center text-white">
+                Loading...
+              </div>
+            }
+          >
+            <ImageTrail />
+          </Suspense>
+        ),
+        "Infinite Marquee": InfiniteMarquee,
+        "In View Animation": InViewAnimation,
+      },
+      "Banners & CTAs": {
+        "Circular Banner": CircularBanner,
+        "Separate Banner": SeparateBanner,
+        "Call To Action": CallToAction,
+        "Reveal Footer": RevealFooter,
+      },
+      "Special Effects": {
+        "Split Vignette Effect": SplitVignetteEffect,
+        "Floating Phone": FloatingPhone,
+      },
+    }),
+    [
+      ArrowButtonWrapper,
+      BorderButtonWrapper,
+      CircularButtonWrapper,
+      ShutterCardWrapper,
+      TextAnimationWrapper,
+      Carousel3dWrapper,
+    ]
+  );
 
   const scrollToComponent = (componentName) => {
     // Add a small delay to ensure DOM is fully rendered
