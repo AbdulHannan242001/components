@@ -66,6 +66,9 @@ import CapsuleButton from "./components/CapsuleButton/CapsuleButton";
 import CircularBanner from "./components/CircularBanner/CircularBanner";
 import SlideTabsExample from "./components/SlideTabs/SlideTabs";
 import DataTable from "./components/DataTable/DataTable";
+import DotButton from "./components/DotButton/DotButton";
+import GlitchText from "./components/GlitchText/GlitchText";
+import ScaleInImageContainer from "./components/ScaleInImageContainer/ScaleInImageContainer";
 
 function App() {
   const [isScrolling, setIsScrolling] = useState(false);
@@ -379,7 +382,6 @@ function App() {
       ),
     [image]
   );
-
   const ArrowButtonWrapper = React.useMemo(
     () => () => <ArrowButton text={"Lit Button"} />,
     []
@@ -426,6 +428,15 @@ function App() {
       ),
     [columns, data, tableLoading, page, size]
   );
+  const GlitchTextWrapper = React.useMemo(
+    () => () =>
+      (
+        <section className="flex items-center justify-center min-h-screen">
+          <GlitchText text={"Now This is One Cool Text Effect !!"} />
+        </section>
+      ),
+    []
+  );
 
   const componentCategories = React.useMemo(
     () => ({
@@ -438,6 +449,7 @@ function App() {
         "Circular Button": CircularButtonWrapper,
         "Capsule Button": CapsuleButton,
         "Shiny Button": ShinyButton,
+        "Dot Button": DotButton,
       },
       Cards: {
         "Squishy Card": SquishyCard,
@@ -453,6 +465,7 @@ function App() {
         "Skew Text": SkewText,
         "Text Animation": TextAnimationWrapper,
         "Text Mask": TextMask,
+        "Glitch Text": GlitchTextWrapper,
       },
       Navigation: {
         "Sliding Nav": SlidingNav,
@@ -475,6 +488,7 @@ function App() {
         "Reveal Gallery": RevealGallery,
         "Sticky Gallery": StickyGallery,
         "Ball Switch Slider": BallSwitchSlider,
+        "Scale Image Container": ScaleInImageContainer,
       },
       "Layout & Sections": {
         "Bento Grid": BentoGrid,
