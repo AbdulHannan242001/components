@@ -9,10 +9,10 @@ export const ImageScale = ({ src, alt = "", className = "" }) => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end end"],
+    offset: ["start end", "center center"],
   });
 
-  const containerScale = useTransform(scrollYProgress, [0, 0.9], [0.3, 1]);
+  const containerScale = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
   const imageScale = useTransform(scrollYProgress, [0, 1], ["300%", "100%"]);
 
   return (
