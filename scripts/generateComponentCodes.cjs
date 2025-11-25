@@ -137,119 +137,384 @@
 
 
 
+// const fs = require("fs").promises;
+// const path = require("path");
+// const recast = require("recast");
+// const j = require("jscodeshift");
+
+// // ---------------------------------------------------------------------------
+// // Define the source and destination paths
+// // ---------------------------------------------------------------------------
+// const componentsDir = path.join(__dirname, "../src/components");
+// const outputFile = path.join(__dirname, "../src/data/generatedComponentCodes.js");
+
+// // ---------------------------------------------------------------------------
+// // Helper: inject `import Image from 'next/image';` if any <img> exists
+// // ---------------------------------------------------------------------------
+// function addImageImportIfNeeded(code, hasImg) {
+//   if (!hasImg) return code;
+
+//   const importStatement = `import Image from "next/image";\n`;
+
+//   // If the file already starts with "use client"; keep it first
+//   const useClientMatch = code.match(/^"use client";\s*/);
+//   if (useClientMatch) {
+//     const rest = code.slice(useClientMatch[0].length);
+//     if (rest.includes(importStatement.trim())) return code; // already there
+//     return useClientMatch[0] + importStatement + rest;
+//   }
+
+//   // No "use client" – insert at the very top (unless already present)
+//   if (code.includes(importStatement.trim())) return code;
+//   return importStatement + code;
+// }
+
+// // ---------------------------------------------------------------------------
+// // Helper: replace every <img …/> with <Image …/>
+// // ---------------------------------------------------------------------------
+// function replaceImgWithNextImage(rawCode) {
+//   let hasImg = false;
+//   let ast;
+//   try {
+//     ast = recast.parse(rawCode, { parser: require("recast/parsers/babel") });
+//   } catch (e) {
+//     // If we cannot parse, just return the original code with a comment
+//     return {
+//       code: rawCode,
+//       hasImg: false,
+//       error: e,
+//     };
+//   }
+
+//   j(ast)
+//     .find(j.JSXElement, (node) => node.openingElement.name.name === "img")
+//     .forEach((path) => {
+//       hasImg = true;
+
+//       const opening = path.value.openingElement;
+//       const attrs = opening.attributes || [];
+
+//       // ---- collect existing props ------------------------------------------------
+//       const props = {};
+//       attrs.forEach((attr) => {
+//         if (attr.type === "JSXAttribute") {
+//           const name = attr.name.name;
+//           const value = attr.value;
+//           if (value?.type === "Literal") props[name] = value.value;
+//           else if (value?.type === "JSXExpressionContainer") {
+//             props[name] = j(value.expression).toSource();
+//           } else props[name] = true;
+//         }
+//       });
+
+//       // ---- mandatory props for Next/Image ---------------------------------------
+//       // width/height: try to read from style or props, otherwise placeholder 1
+//       let width = props.width ?? props.style?.includes("width")
+//         ? "/* width from style */ 1"
+//         : 1;
+//       let height = props.height ?? props.style?.includes("height")
+//         ? "/* height from style */ 1"
+//         : 1;
+//       const alt = props.alt ?? "";
+
+//       // ---- build new <Image …/> -------------------------------------------------
+//       const newAttrs = [
+//         j.jsxAttribute(j.jsxIdentifier("src"), j.literal(props.src || "")),
+//         j.jsxAttribute(j.jsxIdentifier("alt"), j.literal(alt)),
+//         j.jsxAttribute(j.jsxIdentifier("width"), j.literal(width)),
+//         j.jsxAttribute(j.jsxIdentifier("height"), j.literal(height)),
+//       ];
+
+//       // copy all other attributes (className, style, etc.)
+//       attrs.forEach((attr) => {
+//         if (attr.type !== "JSXAttribute") return;
+//         const name = attr.name.name;
+//         if (!["src", "alt", "width", "height"].includes(name)) {
+//           newAttrs.push(attr);
+//         }
+//       });
+
+//       const newOpening = j.jsxOpeningElement(
+//         j.jsxIdentifier("Image"),
+//         newAttrs,
+//         opening.selfClosing
+//       );
+//       const newClosing = opening.selfClosing
+//         ? null
+//         : j.jsxClosingElement(j.jsxIdentifier("Image"));
+
+//       path.replace(
+//         j.jsxElement(newOpening, newClosing, path.value.children)
+//       );
+//     });
+
+//   const newCode = recast.print(ast).code;
+//   return { code: newCode, hasImg };
+// }
+
+// // ---------------------------------------------------------------------------
+// // Main generator
+// // ---------------------------------------------------------------------------
+// async function generateComponentCodes() {
+//   try {
+//     console.log(`Scanning directory: ${componentsDir}`);
+
+//     const componentDirs = await fs.readdir(componentsDir, { withFileTypes: true });
+//     const componentCodes = {};
+//     const skippedComponents = [];
+
+//     for (const dir of componentDirs) {
+//       if (!dir.isDirectory()) continue;
+
+//       const componentName = dir.name;
+//       const componentPath = path.join(componentsDir, componentName);
+//       const files = await fs.readdir(componentPath);
+
+//       const componentFile = files.find(
+//         (f) =>
+//           (f.endsWith(".jsx") || f.endsWith(".js") || f.endsWith(".tsx")) &&
+//           !f.includes(".test.")
+//       );
+
+//       if (!componentFile) {
+//         skippedComponents.push({
+//           name: componentName,
+//           reason: `No main component file (.jsx, .js, .tsx, non-test) found.`,
+//         });
+//         continue;
+//       }
+
+//       const displayName = componentName
+//         .replace(/([A-Z])/g, " $1")
+//         .trim(); // e.g., "Basic Button"
+
+//       const filePath = path.join(componentPath, componentFile);
+//       let rawCode = await fs.readFile(filePath, "utf-8");
+
+//       // ---------- React version (strip "use client") ----------
+//       const reactCode = rawCode.replace(/^"use client";\s*/, "");
+
+//       // ---------- Next.js version ----------
+//       // 1. Ensure "use client" is present
+//       const withClient = rawCode.startsWith('"use client";')
+//         ? rawCode
+//         : `"use client";\n${rawCode}`;
+
+//       // 2. Replace <img> → <Image>
+//       const { code: nextjsWithImage, hasImg, error } = replaceImgWithNextImage(withClient);
+
+//       const nextjsCode = error
+//         ? `// Warning: Could not parse JSX for Next/Image conversion.\n${withClient}`
+//         : addImageImportIfNeeded(nextjsWithImage, hasImg);
+
+//       componentCodes[displayName] = {
+//         react: reactCode,
+//         nextjs: nextjsCode,
+//       };
+//     }
+
+//     // ---------- getDefaultCode function (unchanged) ----------
+//     const getDefaultCodeFunction = `
+// /**
+//  * Provides a fallback code snippet for a component name if the real code 
+//  * couldn't be loaded or is missing from the generated componentCodes map.
+//  * @param {string} componentName - The display name of the component (e.g., "Basic Button").
+//  * @returns {{react: string, nextjs: string}} - Object containing placeholder code.
+//  */
+// export const getDefaultCode = (componentName) => {
+//   const pascalCaseName = componentName
+//     .split(/\\s+/)
+//     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+//     .join('');
+
+//   const fallbackReact = \`// React component code for \${componentName}
+// // This is a fallback placeholder. Please ensure the component file exists.
+
+// import React from 'react';
+
+// const \${pascalCaseName} = () => {
+//   return (
+//     <div className="p-8 bg-neutral-800 rounded-lg shadow-xl m-4">
+//       <h3 className="text-white text-xl mb-4">\${componentName}</h3>
+//       <p className="text-neutral-300">
+//         Component implementation goes here...
+//       </p>
+//       <p className="text-sm text-yellow-400 mt-2">
+//         (Using fallback code because the source file was not found or was empty.)
+//       </p>
+//     </div>
+//   );
+// };
+
+// export default \${pascalCaseName};\`;
+
+//   return {
+//     react: fallbackReact,
+//     nextjs: \`// Next.js code will be available soon.
+// // \${componentName} is currently using the React fallback.\`,
+//   };
+// };
+// `;
+
+//     // ---------- Write output ----------
+//     const outputContent = `// This file is auto-generated by generateComponentCodes.js. Do not edit manually.
+
+// export const componentCodes = ${JSON.stringify(componentCodes, null, 2)};\n` + getDefaultCodeFunction;
+
+//     await fs.writeFile(outputFile, outputContent);
+//     console.log(`\nSuccessfully generated component codes at ${outputFile}`);
+
+//     // ---------- Report skipped ----------
+//     if (skippedComponents.length > 0) {
+//       console.warn("\nSkipped the following component directories:");
+//       skippedComponents.forEach((s) => console.warn(`  - ${s.name}: ${s.reason}`));
+//     } else {
+//       console.log("\nNo component directories were skipped.");
+//     }
+//   } catch (error) {
+//     console.error("\nError generating component codes:", error.message);
+//     if (error.code === "ENOENT") {
+//       console.error(`\nTip: Check the components directory path: ${componentsDir}`);
+//     }
+//   }
+// }
+
+// generateComponentCodes();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// generateComponentCodes.cjs
 const fs = require("fs").promises;
 const path = require("path");
 const recast = require("recast");
 const j = require("jscodeshift");
 
 // ---------------------------------------------------------------------------
-// Define the source and destination paths
+// Paths
 // ---------------------------------------------------------------------------
 const componentsDir = path.join(__dirname, "../src/components");
 const outputFile = path.join(__dirname, "../src/data/generatedComponentCodes.js");
 
 // ---------------------------------------------------------------------------
-// Helper: inject `import Image from 'next/image';` if any <img> exists
+// Helper: inject import Image from "next/image" (once)
 // ---------------------------------------------------------------------------
-function addImageImportIfNeeded(code, hasImg) {
-  if (!hasImg) return code;
+function addImageImport(code) {
+  const importLine = `import Image from "next/image";\n`;
 
-  const importStatement = `import Image from "next/image";\n`;
-
-  // If the file already starts with "use client"; keep it first
-  const useClientMatch = code.match(/^"use client";\s*/);
-  if (useClientMatch) {
-    const rest = code.slice(useClientMatch[0].length);
-    if (rest.includes(importStatement.trim())) return code; // already there
-    return useClientMatch[0] + importStatement + rest;
+  // Keep "use client" first if it exists
+  const useClient = code.match(/^"use client";\s*/);
+  if (useClient) {
+    const rest = code.slice(useClient[0].length);
+    if (rest.includes(importLine.trim())) return code;
+    return useClient[0] + importLine + rest;
   }
 
-  // No "use client" – insert at the very top (unless already present)
-  if (code.includes(importStatement.trim())) return code;
-  return importStatement + code;
+  if (code.includes(importLine.trim())) return code;
+  return importLine + code;
 }
 
 // ---------------------------------------------------------------------------
-// Helper: replace every <img …/> with <Image …/>
+// Helper: replace plain <img> with <Image> (skip motion.img)
 // ---------------------------------------------------------------------------
-function replaceImgWithNextImage(rawCode) {
-  let hasImg = false;
+function replacePlainImgWithNextImage(rawCode) {
   let ast;
   try {
     ast = recast.parse(rawCode, { parser: require("recast/parsers/babel") });
   } catch (e) {
-    // If we cannot parse, just return the original code with a comment
-    return {
-      code: rawCode,
-      hasImg: false,
-      error: e,
-    };
+    return { code: rawCode, changed: false };
   }
 
+  let changed = false;
+
   j(ast)
-    .find(j.JSXElement, (node) => node.openingElement.name.name === "img")
+    .find(j.JSXElement)
     .forEach((path) => {
-      hasImg = true;
-
       const opening = path.value.openingElement;
-      const attrs = opening.attributes || [];
 
-      // ---- collect existing props ------------------------------------------------
+      // 1. Skip anything that is not <img …>
+      if (!opening.name || opening.name.name !== "img") return;
+
+      // 2. Skip if the element is a property of motion (motion.img)
+      const parent = path.parentPath.value;
+      if (
+        j.MemberExpression.check(parent) &&
+        parent.object.name === "motion" &&
+        parent.property.name === "img"
+      )
+        return;
+
+      changed = true;
+
+      // ---- collect existing attributes ---------------------------------------
+      const attrs = opening.attributes || [];
       const props = {};
+
       attrs.forEach((attr) => {
-        if (attr.type === "JSXAttribute") {
-          const name = attr.name.name;
-          const value = attr.value;
-          if (value?.type === "Literal") props[name] = value.value;
-          else if (value?.type === "JSXExpressionContainer") {
-            props[name] = j(value.expression).toSource();
-          } else props[name] = true;
+        if (attr.type !== "JSXAttribute") return;
+        const name = attr.name.name;
+        if (attr.value?.type === "Literal") {
+          props[name] = attr.value.value;
+        } else if (attr.value?.type === "JSXExpressionContainer") {
+          props[name] = j(attr.value.expression).toSource();
+        } else {
+          props[name] = true;
         }
       });
 
-      // ---- mandatory props for Next/Image ---------------------------------------
-      // width/height: try to read from style or props, otherwise placeholder 1
-      let width = props.width ?? props.style?.includes("width")
-        ? "/* width from style */ 1"
-        : 1;
-      let height = props.height ?? props.style?.includes("height")
-        ? "/* height from style */ 1"
-        : 1;
+      // ---- mandatory Next/Image props ----------------------------------------
+      const src = props.src ?? ""; // keep the original variable / import
       const alt = props.alt ?? "";
 
-      // ---- build new <Image …/> -------------------------------------------------
+      // width / height – try style, then explicit attrs, finally 1
+      let width = 1;
+      let height = 1;
+
+      if (props.width) width = props.width;
+      if (props.height) height = props.height;
+
+      // If style contains width/height, keep a comment (developer can adjust)
+      if (props.style && typeof props.style === "string") {
+        if (props.style.includes("width")) width = "/* width from style */ 1";
+        if (props.style.includes("height")) height = "/* height from style */ 1";
+      }
+
+      // ---- build new <Image …/> -----------------------------------------------
       const newAttrs = [
-        j.jsxAttribute(j.jsxIdentifier("src"), j.literal(props.src || "")),
+        j.jsxAttribute(j.jsxIdentifier("src"), j.jsxExpressionContainer(j.identifier(src || "''"))),
         j.jsxAttribute(j.jsxIdentifier("alt"), j.literal(alt)),
         j.jsxAttribute(j.jsxIdentifier("width"), j.literal(width)),
         j.jsxAttribute(j.jsxIdentifier("height"), j.literal(height)),
       ];
 
-      // copy all other attributes (className, style, etc.)
+      // copy every other attribute (className, style, …)
       attrs.forEach((attr) => {
         if (attr.type !== "JSXAttribute") return;
-        const name = attr.name.name;
-        if (!["src", "alt", "width", "height"].includes(name)) {
-          newAttrs.push(attr);
-        }
+        const n = attr.name.name;
+        if (!["src", "alt", "width", "height"].includes(n)) newAttrs.push(attr);
       });
 
-      const newOpening = j.jsxOpeningElement(
-        j.jsxIdentifier("Image"),
-        newAttrs,
-        opening.selfClosing
-      );
-      const newClosing = opening.selfClosing
-        ? null
-        : j.jsxClosingElement(j.jsxIdentifier("Image"));
+      const newOpening = j.jsxOpeningElement(j.jsxIdentifier("Image"), newAttrs, opening.selfClosing);
+      const newClosing = opening.selfClosing ? null : j.jsxClosingElement(j.jsxIdentifier("Image"));
 
-      path.replace(
-        j.jsxElement(newOpening, newClosing, path.value.children)
-      );
+      path.replace(j.jsxElement(newOpening, newClosing, path.value.children));
     });
 
   const newCode = recast.print(ast).code;
-  return { code: newCode, hasImg };
+  return { code: newCode, changed };
 }
 
 // ---------------------------------------------------------------------------
@@ -279,14 +544,12 @@ async function generateComponentCodes() {
       if (!componentFile) {
         skippedComponents.push({
           name: componentName,
-          reason: `No main component file (.jsx, .js, .tsx, non-test) found.`,
+          reason: "No main component file (.jsx, .js, .tsx, non-test) found.",
         });
         continue;
       }
 
-      const displayName = componentName
-        .replace(/([A-Z])/g, " $1")
-        .trim(); // e.g., "Basic Button"
+      const displayName = componentName.replace(/([A-Z])/g, " $1").trim();
 
       const filePath = path.join(componentPath, componentFile);
       let rawCode = await fs.readFile(filePath, "utf-8");
@@ -295,17 +558,16 @@ async function generateComponentCodes() {
       const reactCode = rawCode.replace(/^"use client";\s*/, "");
 
       // ---------- Next.js version ----------
-      // 1. Ensure "use client" is present
+      // 1. Ensure "use client"
       const withClient = rawCode.startsWith('"use client";')
         ? rawCode
         : `"use client";\n${rawCode}`;
 
-      // 2. Replace <img> → <Image>
-      const { code: nextjsWithImage, hasImg, error } = replaceImgWithNextImage(withClient);
+      // 2. Replace plain <img> → <Image> (skip motion.img)
+      const { code: nextjsWithImage, changed } = replacePlainImgWithNextImage(withClient);
 
-      const nextjsCode = error
-        ? `// Warning: Could not parse JSX for Next/Image conversion.\n${withClient}`
-        : addImageImportIfNeeded(nextjsWithImage, hasImg);
+      // 3. Add import Image only if we actually changed something
+      const nextjsCode = changed ? addImageImport(nextjsWithImage) : nextjsWithImage;
 
       componentCodes[displayName] = {
         react: reactCode,
@@ -313,68 +575,58 @@ async function generateComponentCodes() {
       };
     }
 
-    // ---------- getDefaultCode function (unchanged) ----------
+    // ---------- getDefaultCode (unchanged) ----------
     const getDefaultCodeFunction = `
 /**
- * Provides a fallback code snippet for a component name if the real code 
- * couldn't be loaded or is missing from the generated componentCodes map.
- * @param {string} componentName - The display name of the component (e.g., "Basic Button").
- * @returns {{react: string, nextjs: string}} - Object containing placeholder code.
+ * Fallback code when a component cannot be loaded.
  */
 export const getDefaultCode = (componentName) => {
   const pascalCaseName = componentName
     .split(/\\s+/)
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join('');
 
-  const fallbackReact = \`// React component code for \${componentName}
-// This is a fallback placeholder. Please ensure the component file exists.
-
+  const fallbackReact = \`// React fallback for \${componentName}
 import React from 'react';
 
-const \${pascalCaseName} = () => {
-  return (
-    <div className="p-8 bg-neutral-800 rounded-lg shadow-xl m-4">
-      <h3 className="text-white text-xl mb-4">\${componentName}</h3>
-      <p className="text-neutral-300">
-        Component implementation goes here...
-      </p>
-      <p className="text-sm text-yellow-400 mt-2">
-        (Using fallback code because the source file was not found or was empty.)
-      </p>
-    </div>
-  );
-};
+const \${pascalCaseName} = () => (
+  <div className="p-8 bg-neutral-800 rounded-lg shadow-xl m-4">
+    <h3 className="text-white text-xl mb-4">\${componentName}</h3>
+    <p className="text-neutral-300">Component implementation goes here...</p>
+    <p className="text-sm text-yellow-400 mt-2">
+      (fallback – source file missing)
+    </p>
+  </div>
+);
 
 export default \${pascalCaseName};\`;
 
   return {
     react: fallbackReact,
-    nextjs: \`// Next.js code will be available soon.
-// \${componentName} is currently using the React fallback.\`,
+    nextjs: \`// Next.js version not available yet.\`,
   };
 };
 `;
 
     // ---------- Write output ----------
-    const outputContent = `// This file is auto-generated by generateComponentCodes.js. Do not edit manually.
+    const outputContent = `// AUTO-GENERATED – DO NOT EDIT MANUALLY
 
 export const componentCodes = ${JSON.stringify(componentCodes, null, 2)};\n` + getDefaultCodeFunction;
 
     await fs.writeFile(outputFile, outputContent);
-    console.log(`\nSuccessfully generated component codes at ${outputFile}`);
+    console.log(`\nGenerated component codes → ${outputFile}`);
 
     // ---------- Report skipped ----------
-    if (skippedComponents.length > 0) {
-      console.warn("\nSkipped the following component directories:");
+    if (skippedComponents.length) {
+      console.warn("\nSkipped components:");
       skippedComponents.forEach((s) => console.warn(`  - ${s.name}: ${s.reason}`));
     } else {
-      console.log("\nNo component directories were skipped.");
+      console.log("\nAll components processed.");
     }
-  } catch (error) {
-    console.error("\nError generating component codes:", error.message);
-    if (error.code === "ENOENT") {
-      console.error(`\nTip: Check the components directory path: ${componentsDir}`);
+  } catch (err) {
+    console.error("\nGeneration failed:", err.message);
+    if (err.code === "ENOENT") {
+      console.error(`\nCheck path: ${componentsDir}`);
     }
   }
 }
