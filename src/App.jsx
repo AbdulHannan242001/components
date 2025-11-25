@@ -14,7 +14,7 @@ import { componentCodes, getDefaultCode } from "./data/generatedComponentCodes";
 import IntroAnimation from "./components/IntroAnimation/IntroAnimation";
 
 // Lazy load heavy components
-const Carousel3d = lazy(() => import("./components/Carousel3d/Carousel3d"));
+const Carousel3d = lazy(() => import("./components/Carousel3D/Carousel3d"));
 const SwiperSlider = lazy(() =>
   import("./components/SwiperSlider/SwiperSlider")
 );
