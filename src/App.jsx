@@ -69,6 +69,7 @@ import DataTable from "./components/DataTable/DataTable";
 import DotButton from "./components/DotButton/DotButton";
 import GlitchText from "./components/GlitchText/GlitchText";
 import ScaleInImageContainer from "./components/ScaleInImageContainer/ScaleInImageContainer";
+import ScrollReveal from "./components/ScrollReveal/ScrollReveal";
 
 function App() {
   const [isScrolling, setIsScrolling] = useState(false);
@@ -531,6 +532,7 @@ function App() {
         "Separate Banner": SeparateBanner,
         "Call To Action": CallToAction,
         "Reveal Footer": RevealFooter,
+        "Scale In Banner": ScrollReveal,
       },
       "Special Effects": {
         "Split Vignette Effect": SplitVignetteEffect,
