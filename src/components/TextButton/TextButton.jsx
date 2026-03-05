@@ -22,7 +22,7 @@ const TextButton = () => {
           paddingTop: "0.425rem",
           paddingBottom: "0.425rem",
         }}
-        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.25 }}
         onMouseEnter={() => controls.start("hover")}
         onMouseLeave={() => controls.start("initial")}
       >
@@ -33,7 +33,7 @@ const TextButton = () => {
               <Alphabet
                 key={`top-${index}`}
                 letter={letter}
-                delay={index * 0.01 + 0.15}
+                delay={index * 0.03}
                 controls={controls}
                 isSpace={letter === " "}
               />
@@ -45,7 +45,7 @@ const TextButton = () => {
               <Alphabet
                 key={`bottom-${index}`}
                 letter={letter}
-                delay={index * 0.01 + 0.15}
+                delay={index * 0.03}
                 controls={controls}
                 isSpace={letter === " "}
               />
